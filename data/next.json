@@ -1,0 +1,302 @@
+[
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "基本ページ",
+        "text": "export default function Home() { return <div>Home</div>; }"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "Link",
+        "text": "<Link href=\"/about\">About</Link>"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "Image",
+        "text": "<Image src=\"/logo.png\" alt=\"logo\" width={100} height={100} />"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "Head",
+        "text": "<Head><title>Page</title></Head>"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "useRouter",
+        "text": "const router = useRouter();"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "router.push",
+        "text": "router.push('/home');"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "router.query",
+        "text": "router.query.id"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "CSS Module",
+        "text": "import styles from './home.module.css';"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "class適用",
+        "text": "<div className={styles.container}></div>"
+    },
+    {
+        "course": "next",
+        "level": "basic",
+        "title": "Layout構成",
+        "text": "<Layout><Component /></Layout>"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "getStaticProps",
+        "text": "export async function getStaticProps() { return { props: {} }; }"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "getServerSideProps",
+        "text": "export async function getServerSideProps() { return { props: {} }; }"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "getStaticPaths",
+        "text": "export async function getStaticPaths() { return { paths: [], fallback: false }; }"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "API Route",
+        "text": "export default function handler(req, res) { res.status(200).json({}); }"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "fetch取得",
+        "text": "const res = await fetch(url);"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "json取得",
+        "text": "const data = await res.json();"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "useEffect fetch",
+        "text": "useEffect(() => { fetchData(); }, []);"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "params取得",
+        "text": "const { id } = router.query;"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "条件ルーティング",
+        "text": "if (!router.isReady) return null;"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Dynamic Route",
+        "text": "pages/posts/[id].js"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "環境変数",
+        "text": "process.env.NEXT_PUBLIC_API_URL"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "middleware",
+        "text": "export function middleware(req) { }"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "redirect",
+        "text": "return { redirect: { destination: '/', permanent: false } };"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "notFound",
+        "text": "return { notFound: true };"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Image最適化",
+        "text": "<Image src={url} fill alt=\"img\" />"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Script",
+        "text": "<Script src=\"/script.js\" />"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Metadata",
+        "text": "export const metadata = { title: 'Home' };"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Server Component",
+        "text": "export default async function Page() { }"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Client Component",
+        "text": "'use client';"
+    },
+    {
+        "course": "next",
+        "level": "intermediate",
+        "title": "Suspense",
+        "text": "<Suspense fallback={<Loading />} />"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "Server Action",
+        "text": "'use server';"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "Form Action",
+        "text": "<form action={submitForm}></form>"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "Route Handler",
+        "text": "export async function GET(request) { }"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "POST Handler",
+        "text": "export async function POST(request) { }"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "fetch cache",
+        "text": "fetch(url, { cache: 'no-store' });"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "revalidate",
+        "text": "revalidate: 60"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "generateMetadata",
+        "text": "export async function generateMetadata() { }"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "dynamic segment",
+        "text": "app/blog/[slug]/page.js"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "layout.js",
+        "text": "export default function RootLayout({ children }) { return <html>{children}</html>; }"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "template.js",
+        "text": "export default function Template({ children }) { return <div>{children}</div>; }"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "useSearchParams",
+        "text": "const params = useSearchParams();"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "usePathname",
+        "text": "const path = usePathname();"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "redirect関数",
+        "text": "redirect('/login');"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "notFound関数",
+        "text": "notFound();"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "headers取得",
+        "text": "headers().get('cookie');"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "cookies取得",
+        "text": "cookies().get('token');"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "streaming",
+        "text": "return new Response(stream);"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "Edge Runtime",
+        "text": "export const runtime = 'edge';"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "fetch option",
+        "text": "fetch(url, { next: { revalidate: 60 } });"
+    },
+    {
+        "course": "next",
+        "level": "advanced",
+        "title": "最終問題",
+        "text": "export default function Page({ params }) { return <div>{params.id}</div>; }"
+    }
+]

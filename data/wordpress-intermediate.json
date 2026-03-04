@@ -1,0 +1,104 @@
+[
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "投稿日取得（get_the_date）",
+        "text": "<?php echo get_the_date('Y-m-d'); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "更新日取得（get_the_modified_date）",
+        "text": "<?php echo get_the_modified_date('Y-m-d'); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "タイトル取得（エスケープ）",
+        "text": "<?php echo esc_html(get_the_title()); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "パーマリンク取得（エスケープ）",
+        "text": "<?php echo esc_url(get_permalink()); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "カテゴリ取得（get_the_category）→ 名前だけ表示",
+        "text": "<?php $cats = get_the_category(); if ($cats) { echo esc_html($cats[0]->name); } ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "カテゴリ取得 → 複数をカンマ区切り",
+        "text": "<?php $cats = get_the_category(); if ($cats) { echo esc_html(implode(', ', wp_list_pluck($cats, 'name'))); } ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "タグ取得（get_the_tags）→ カンマ区切り",
+        "text": "<?php $tags = get_the_tags(); if ($tags) { echo esc_html(implode(', ', wp_list_pluck($tags, 'name'))); } ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "著者名取得",
+        "text": "<?php echo esc_html(get_the_author()); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "カスタムフィールド取得（例）",
+        "text": "<?php echo esc_html(get_post_meta(get_the_ID(), 'my_key', true)); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "アイキャッチURL取得（サイズ指定）",
+        "text": "<?php echo esc_url(get_the_post_thumbnail_url(null, 'large')); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "WP_Query args 例（最新3件）",
+        "text": "$args = ['post_type' => 'post', 'posts_per_page' => 3];"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "WP_Query 生成",
+        "text": "$query = new WP_Query($args);"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "WP_Query ループ開始",
+        "text": "<?php while ($query->have_posts()) : $query->the_post(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "WP_Query リセット",
+        "text": "<?php wp_reset_postdata(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "条件分岐（アーカイブ）",
+        "text": "<?php if (is_archive()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "条件分岐（タグ）",
+        "text": "<?php if (is_tag()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "intermediate",
+        "title": "条件分岐（404）",
+        "text": "<?php if (is_404()) : ?>"
+    }
+]

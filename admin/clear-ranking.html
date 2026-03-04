@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ランキング管理｜WebTraining</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 30px;
+        background: #111;
+        color: #fff;
+      }
+      button {
+        padding: 10px 15px;
+        margin: 5px 0;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+      .danger {
+        background: #d9534f;
+        color: #fff;
+      }
+      .warn {
+        background: #f0ad4e;
+        color: #000;
+      }
+      .info {
+        background: #5bc0de;
+        color: #000;
+      }
+      .card {
+        border: 1px solid #444;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        background: #1a1a1a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ランキング管理ページ（管理者用）</h1>
+
+    <div class="card">
+      <h3>現在保存されているランキング</h3>
+      <div id="rankingStatus"></div>
+    </div>
+
+    <div class="card">
+      <h3>コース別ランキング削除</h3>
+      <select id="courseSelect"></select>
+      <br />
+      <button class="warn" id="clearOne">選択コースのみ削除</button>
+    </div>
+
+    <div class="card">
+      <h3>全ランキング削除（緊急用）</h3>
+      <button class="danger" id="clearAll">全コース削除</button>
+    </div>
+
+    <script>
+      const rankingStatus = document.getElementById("rankingStatus");
+      const courseSelect = document.getElementById("courseSelect");
+
+      // ==============================
+      // ランキング一覧表示
+      // ==============================
+      function loadStatus() {
+        rankingStatus.innerHTML = "";
+        courseSelect.innerHTML = "";
+
+        const keys = Object.keys(localStorage).filter((k) =>
+          k.startsWith("ranking_"),
+        );
+
+        if (keys.length === 0) {
+          rankingStatus.innerHTML =
+            "<p>保存されているランキングはありません。</p>";
+          return;
+        }
+
+        keys.forEach((key) => {
+          const data = JSON.parse(localStorage.getItem(key));
+          const count = Array.isArray(data) ? data.length : 0;
+
+          rankingStatus.innerHTML += `<p>${key} ： ${count}件</p>`;
+
+          const opt = document.createElement("option");
+          opt.value = key;
+          opt.textContent = key;
+          courseSelect.appendChild(opt);
+        });
+      }
+
+      // ==============================
+      // コース別削除
+      // ==============================
+      document.getElementById("clearOne").addEventListener("click", () => {
+        const key = courseSelect.value;
+        if (!key) return;
+
+        if (!confirm(`${key} を削除します。よろしいですか？`)) return;
+
+        localStorage.removeItem(key);
+        alert("削除しました");
+        loadStatus();
+      });
+
+      // ==============================
+      // 全削除
+      // ==============================
+      document.getElementById("clearAll").addEventListener("click", () => {
+        if (!confirm("全ランキングを削除します。本当に実行しますか？")) return;
+
+        Object.keys(localStorage).forEach((key) => {
+          if (key.startsWith("ranking_")) {
+            localStorage.removeItem(key);
+          }
+        });
+
+        alert("すべて削除しました");
+        loadStatus();
+      });
+
+      // 初期表示
+      loadStatus();
+    </script>
+  </body>
+</html>

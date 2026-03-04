@@ -1,0 +1,206 @@
+[
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "データベース作成",
+        "text": "CREATE DATABASE sample_db;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "データベース選択",
+        "text": "USE sample_db;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "テーブル作成",
+        "text": "CREATE TABLE users ();"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "INT型カラム",
+        "text": "id INT;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "VARCHAR型カラム",
+        "text": "name VARCHAR(100);"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "TEXT型カラム",
+        "text": "comment TEXT;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "DATETIME型カラム",
+        "text": "created_at DATETIME;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "主キー指定",
+        "text": "PRIMARY KEY (id);"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "AUTO_INCREMENT指定",
+        "text": "id INT AUTO_INCREMENT;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "NOT NULL制約",
+        "text": "name VARCHAR(100) NOT NULL;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "DEFAULT指定",
+        "text": "status INT DEFAULT 0;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "テーブル定義まとめ",
+        "text": "CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100));"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "全件取得",
+        "text": "SELECT * FROM users;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "特定カラム取得",
+        "text": "SELECT name FROM users;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "WHERE条件",
+        "text": "SELECT * FROM users WHERE id = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "AND条件",
+        "text": "SELECT * FROM users WHERE id = 1 AND status = 0;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "OR条件",
+        "text": "SELECT * FROM users WHERE status = 0 OR status = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "INSERT文",
+        "text": "INSERT INTO users (name) VALUES ('Taro');"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "複数カラムINSERT",
+        "text": "INSERT INTO users (name, status) VALUES ('Taro', 1);"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "UPDATE文",
+        "text": "UPDATE users SET name = 'Jiro';"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "WHERE付きUPDATE",
+        "text": "UPDATE users SET name = 'Jiro' WHERE id = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "DELETE文",
+        "text": "DELETE FROM users;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "WHERE付きDELETE",
+        "text": "DELETE FROM users WHERE id = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "並び替え昇順",
+        "text": "SELECT * FROM users ORDER BY id ASC;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "並び替え降順",
+        "text": "SELECT * FROM users ORDER BY id DESC;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "取得件数制限",
+        "text": "SELECT * FROM users LIMIT 5;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "開始位置指定",
+        "text": "SELECT * FROM users LIMIT 5 OFFSET 10;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "件数カウント",
+        "text": "SELECT COUNT(*) FROM users;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "条件付き件数",
+        "text": "SELECT COUNT(*) FROM users WHERE status = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "LIKE検索",
+        "text": "SELECT * FROM users WHERE name LIKE '%ro%';"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "IN検索",
+        "text": "SELECT * FROM users WHERE id IN (1,2,3);"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "BETWEEN検索",
+        "text": "SELECT * FROM users WHERE id BETWEEN 1 AND 10;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "テーブル削除",
+        "text": "DROP TABLE users;"
+    },
+    {
+        "course": "mysql",
+        "level": "basic",
+        "title": "データベース削除",
+        "text": "DROP DATABASE sample_db;"
+    }
+]

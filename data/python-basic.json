@@ -1,0 +1,302 @@
+[
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "print出力",
+        "text": "print(\"Hello\")"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "変数代入",
+        "text": "name = \"Taro\""
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "数値代入",
+        "text": "count = 0"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "if文",
+        "text": "if count > 0:"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "else",
+        "text": "else:"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "elif",
+        "text": "elif count == 0:"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "for文",
+        "text": "for i in range(10):"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "while文",
+        "text": "while True:"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "break",
+        "text": "break"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "continue",
+        "text": "continue"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "関数定義",
+        "text": "def greet():"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "引数付き関数",
+        "text": "def greet(name):"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "return",
+        "text": "return result"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "デフォルト引数",
+        "text": "def greet(name=\"Guest\"):"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "print f文字列",
+        "text": "print(f\"Hello {name}\")"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "リスト定義",
+        "text": "items = [1, 2, 3]"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "リスト追加",
+        "text": "items.append(4)"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "リストループ",
+        "text": "for item in items:"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "辞書定義",
+        "text": "user = {\"name\": \"Taro\"}"
+    },
+    {
+        "course": "python",
+        "level": "basic",
+        "title": "辞書取得",
+        "text": "user[\"name\"]"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "try",
+        "text": "try:"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "except",
+        "text": "except Exception as e:"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "with open",
+        "text": "with open(\"file.txt\") as f:"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "read",
+        "text": "data = f.read()"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "write",
+        "text": "f.write(text)"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "import",
+        "text": "import os"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "from import",
+        "text": "from datetime import datetime"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "datetime now",
+        "text": "datetime.now()"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "len",
+        "text": "len(items)"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "range",
+        "text": "range(0, 10)"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "list内包表記",
+        "text": "[x for x in items]"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "条件内包",
+        "text": "[x for x in items if x > 0]"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "join",
+        "text": "\", \".join(items)"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "split",
+        "text": "text.split(\",\")"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "lower",
+        "text": "text.lower()"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "upper",
+        "text": "text.upper()"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "strip",
+        "text": "text.strip()"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "None比較",
+        "text": "if value is None:"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "bool判定",
+        "text": "if not user:"
+    },
+    {
+        "course": "python",
+        "level": "intermediate",
+        "title": "and or",
+        "text": "if a and b:"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "クラス定義",
+        "text": "class User:"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "__init__",
+        "text": "def __init__(self, name):"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "self属性",
+        "text": "self.name = name"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "メソッド定義",
+        "text": "def greet(self):"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "return f文字列",
+        "text": "return f\"Hello {self.name}\""
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "lambda",
+        "text": "lambda x: x * 2"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "map",
+        "text": "map(lambda x: x * 2, items)"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "filter",
+        "text": "filter(lambda x: x > 0, items)"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "json読み込み",
+        "text": "json.loads(data)"
+    },
+    {
+        "course": "python",
+        "level": "advanced",
+        "title": "最終問題",
+        "text": "if user and user[\"name\"] != \"\": print(f\"Hello {user['name']}\")"
+    }
+]

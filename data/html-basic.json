@@ -1,0 +1,146 @@
+[
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "DOCTYPE宣言(HTMLバージョン宣言)",
+    "text": "<!DOCTYPE html>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "html始まりと終わり",
+    "text": "<html lang=\"ja\"></html>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "head要素の始まりと終わり",
+    "text": "<head></head>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "文字エンコード指定",
+    "text": "<meta charset=\"UTF-8\">"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "サイトのtitle要素",
+    "text": "<title>Site Title</title>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "body要素の始まりと終わり",
+    "text": "<body></body>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "<h1>大見出し要素",
+    "text": "<h1>Title</h1>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "<h2>小見出し要素",
+    "text": "<h2>SubTitle</h2>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "<h3>小見出し要素",
+    "text": "<h3>SubTitle</h3>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "<h4>小見出し要素",
+    "text": "<h4>SubTitle</h4>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "<h5>小見出し要素",
+    "text": "<h5>SubTitle</h5>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "<h6>小見出し要素",
+    "text": "<h6>SubTitle</h6>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "p要素（段落）",
+    "text": "<p>Sample Text</p>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "箇条書き・リスト（ul）",
+    "text": "<ul></ul>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "順序型・リスト（ol）",
+    "text": "<ol></ol>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "リスト項目（li）",
+    "text": "<li>item</li>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "箇条書き・リスト（ul + li）",
+    "text": "<ul><li>list01</li></ul>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "順序型・リスト（ol + li）",
+    "text": "<ol><li>item</li></ol>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "説明リスト（dl + dt + dd）",
+    "text": "<dl><dt>name</dt><dd>description</dd></dl>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "画像表示のimg要素",
+    "text": "<img src=\"logo.png\">"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "画像とalt属性(画像の説明文)",
+    "text": "<img src=\"logo.png\" alt=\"logo\">"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "a要素・リンク指定",
+    "text": "<a href=\"index.html\">Webtraining.jp</a>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "a要素・リンク指定先を別のタブで表示",
+    "text": "<a href=\"https://example.com\" target=\"_blank\">Webtraining.jp</a>"
+  },
+  {
+    "course": "html",
+    "level": "basic",
+    "title": "a要素で画像を囲む",
+    "text": "<a href=\"index.html\"><img src=\"logo\"></a>"
+  }
+]

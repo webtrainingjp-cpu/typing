@@ -1,0 +1,230 @@
+[
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字色の指定（16進数)",
+        "text": "color:#f4f4f4;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字色の指定（RGB）",
+        "text": "color:rgb(255,255,255);"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "背景色の指定",
+        "text": "background-color:#f5f5f5;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字サイズ(ピクセル)",
+        "text": "font-size:16px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字サイズ(パーセント)",
+        "text": "font-size:100%;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字サイズ(em)",
+        "text": "font-size:1em;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字の太さ",
+        "text": "font-weight:bold;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字のスタイル",
+        "text": "font-style:italic;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "行間の指定",
+        "text": "line-height:1.6;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字揃え(中央）",
+        "text": "text-align:center;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "文字揃え(右揃え)",
+        "text": "text-align:right;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "余白（margin上下左右）",
+        "text": "margin:10px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "内側余白（padding上下左右）",
+        "text": "padding:10px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "余白（margin上）",
+        "text": "margin-top:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "余白（margin下）",
+        "text": "margin-bottom:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "余白（margin左）",
+        "text": "margin-left:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "余白（margin右）",
+        "text": "margin-right:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "内側余白（padding上）",
+        "text": "padding-top:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "内側余白（padding下）",
+        "text": "padding-bottom:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "内側余白（padding左）",
+        "text": "padding-left:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "内側余白（padding右）",
+        "text": "padding-right:20px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "枠線(上下左右）1px 実線 グレー",
+        "text": "border:1px solid #ccc;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "枠線(下）2px 破線 黒",
+        "text": "border-bottom:2px dashed #000;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "角丸",
+        "text": "border-radius:8px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "横幅の指定",
+        "text": "width:100%;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "最大幅",
+        "text": "max-width:1200px;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "画面幅の中央寄せ（margin auto）",
+        "text": "margin:0 auto;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "表示・非表示",
+        "text": "display:none;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "表示形式（block）",
+        "text": "display:block;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "フレックスボックス",
+        "text": "display:flex;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "フレックス横並び",
+        "text": "justify-content:space-between;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "フレックス横並び中央",
+        "text": "justify-content:center;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "フレックス縦中央",
+        "text": "align-items:center;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "ホバー指定",
+        "text": ":hover { opacity:0.8; }"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "トランジション",
+        "text": "transition:all 0.3s ease;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "ボックスサイズの計算方法",
+        "text": "box-sizing:border-box;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "位置指定（relative）",
+        "text": "position:relative;"
+    },
+    {
+        "course": "css",
+        "level": "basic",
+        "title": "マウスカーソルを変更",
+        "text": "cursor:pointer;"
+    }
+]

@@ -1,0 +1,416 @@
+<!doctype html>
+<html lang="ja" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>自分のタイピング記録｜WebTraining Typing</title>
+
+    <meta
+      name="description"
+      content="WebTraining タイピング練習のコース別ランキングページです。"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="text-light">
+    <div class="container py-4">
+      <!-- ===== タイトル ===== -->
+      <h1 class="mb-4 text-center">自分のタイピング記録</h1>
+
+      <!-- ===== コース名 ===== -->
+      <h2 id="courseTitle" class="text-center mb-4"></h2>
+      <div class="row">
+        <!-- ===== 左：ランキングナビ ===== -->
+        <nav class="col-md-3 col-lg-3 nav-area d-none d-md-block">
+          <!-- タブ -->
+          <div class="btn-group w-100 mb-3" role="group">
+            <button id="tab-basic" class="btn btn-sm btn-outline-light active">
+              基礎コード
+            </button>
+            <button id="tab-modern" class="btn btn-sm btn-outline-light">
+              モダン開発
+            </button>
+          </div>
+
+          <!-- ===== 基礎コード ===== -->
+          <div id="basic-courses">
+            <a
+              href="ranking.html?course=html"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              HTML
+            </a>
+            <a
+              href="ranking.html?course=css"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              CSS
+            </a>
+            <a
+              href="ranking.html?course=js"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              JavaScript
+            </a>
+            <a
+              href="ranking.html?course=php"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              PHP
+            </a>
+            <a
+              href="ranking.html?course=mysql"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              MySQL
+            </a>
+            <a
+              href="ranking.html?course=wordpress"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              WordPress
+            </a>
+            <a
+              href="ranking.html?course=bootstrap"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              Bootstrap
+            </a>
+          </div>
+
+          <!-- ===== モダン開発 ===== -->
+          <div id="modern-courses" style="display: none">
+            <a
+              href="ranking.html?course=symbols"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              記号
+            </a>
+            <a
+              href="ranking.html?course=react"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              React
+            </a>
+            <a
+              href="ranking.html?course=vue"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              Vue
+            </a>
+            <a
+              href="ranking.html?course=next"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              Next.js
+            </a>
+            <a
+              href="ranking.html?course=typescript"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              TypeScript
+            </a>
+            <a
+              href="ranking.html?course=tailwind"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              Tailwind
+            </a>
+            <a
+              href="ranking.html?course=python"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              Python
+            </a>
+            <a
+              href="ranking.html?course=django"
+              class="btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+            >
+              Django
+            </a>
+          </div>
+        </nav>
+
+        <!-- 右側ランキング -->
+        <main class="col-md-9 col-lg-9">
+          <!-- ===== 参加フォーム ===== -->
+          <div id="entryArea" class="card bg-dark border-light mb-4 d-none">
+            <div class="card-body">
+              <h4 class="mb-3">ランキングに参加する</h4>
+
+              <input
+                type="text"
+                id="playerName"
+                class="form-control mb-2"
+                placeholder="名前（10文字まで）"
+                maxlength="10"
+              />
+
+              <button id="entryBtn" class="btn btn-success w-100">
+                ランキングに登録
+              </button>
+
+              <div id="entryMessage" class="mt-3"></div>
+            </div>
+          </div>
+
+          <!-- ===== ランキング表示 ===== -->
+          <div class="card bg-dark border-light mb-4">
+            <div class="card-body">
+              <div id="rankingList"></div>
+            </div>
+          </div>
+
+          <!-- ===== 戻る ===== -->
+          <div class="text-center">
+            <a href="typing.html" class="btn btn-outline-light">
+              タイピングに戻る
+            </a>
+          </div>
+        </main>
+      </div>
+    </div>
+    <footer class="text-center py-4 border-top border-secondary">
+      <p>
+        <a href="https://webtraining.jp/" target="_blank">
+          <img src="images/logo_white.svg" alt="Webtraining.jp" width="300" />
+        </a>
+      </p>
+      <nav class="mb-3 d-flex justify-content-center gap-3 flex-wrap">
+        <a href="index.php" class="btn btn-outline-info btn-sm">ホーム</a>
+        <a href="typing.html" class="btn btn-outline-info btn-sm">タイピング</a>
+        <a href="ranking.html" class="btn btn-outline-info btn-sm"
+          >ランキング</a
+        >
+        <a href="about.php" class="btn btn-outline-info btn-sm"
+          >このサイトについて</a
+        >
+        <a href="faq.php" class="btn btn-outline-info btn-sm">FAQ</a>
+        <a href="contact.php" class="btn btn-outline-info btn-sm"
+          >お問い合わせ</a
+        >
+      </nav>
+
+      <p class="m-0">
+        <small>© WebTraining.jp 2026</small>
+      </p>
+    </footer>
+    <!-- ================= JS ================= -->
+    <script>
+      // ==============================
+      // URLパラメータ取得
+      // ==============================
+      const params = new URLSearchParams(location.search);
+      const courseKey = params.get("course");
+      const myScore = Number(params.get("score"));
+
+      const courseTitleEl = document.getElementById("courseTitle");
+      const entryArea = document.getElementById("entryArea");
+      const entryBtn = document.getElementById("entryBtn");
+      const playerNameInput = document.getElementById("playerName");
+      const entryMessage = document.getElementById("entryMessage");
+      const rankingList = document.getElementById("rankingList");
+
+      if (!courseKey) {
+        location.href = "ranking.html?course=html";
+      } else {
+        courseTitleEl.textContent = courseKey.toUpperCase() + "の記録";
+      }
+
+      // ==============================
+      // localStorageキー
+      // ==============================
+      function getRankingKey() {
+        return `ranking_${courseKey}`;
+      }
+
+      // ==============================
+      // ランキング取得
+      // ==============================
+      function getRanking() {
+        return JSON.parse(localStorage.getItem(getRankingKey())) || [];
+      }
+
+      // ==============================
+      // ランキング保存
+      // ==============================
+      function saveRanking(name, score) {
+        let list = getRanking();
+
+        // 同一名を探す
+        const existingIndex = list.findIndex((item) => item.name === name);
+
+        if (existingIndex !== -1) {
+          // 既にある場合 → 高いスコアだけ残す
+          if (score > list[existingIndex].score) {
+            list[existingIndex].score = score;
+            list[existingIndex].date = Date.now();
+          }
+        } else {
+          // 初登場なら追加
+          list.push({
+            name,
+            score,
+            date: Date.now(),
+          });
+        }
+
+        // ソート
+        list.sort((a, b) => b.score - a.score);
+
+        // 上位10件だけ
+        list = list.slice(0, 10);
+
+        localStorage.setItem(getRankingKey(), JSON.stringify(list));
+
+        return list;
+      }
+
+      // ==============================
+      // ランキング描画
+      // ==============================
+      function renderRanking(list) {
+        if (list.length === 0) {
+          rankingList.innerHTML = "<p>まだランキングはありません。</p>";
+          return;
+        }
+
+        let html = `
+        <table class="table table-dark table-striped">
+          <thead>
+            <tr>
+              <th>順位</th>
+              <th>名前</th>
+              <th>スコア</th>
+            </tr>
+          </thead>
+          <tbody>
+      `;
+
+        list.forEach((item, index) => {
+          const isMe = item.score === myScore;
+          html += `
+          <tr class="${isMe ? "table-primary" : ""}">
+            <td>${index + 1}</td>
+            <td>${escapeHTML(item.name)}</td>
+            <td>${item.score}</td>
+          </tr>
+        `;
+        });
+
+        html += `
+          </tbody>
+        </table>
+      `;
+
+        rankingList.innerHTML = html;
+      }
+
+      // ==============================
+      // HTMLエスケープ
+      // ==============================
+      function escapeHTML(str) {
+        return str
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+
+      // ==============================
+      // 初期表示
+      // ==============================
+      const ranking = getRanking();
+      renderRanking(ranking);
+
+      // スコア付きで来た場合のみ参加フォーム表示
+      if (courseKey && myScore > 0) {
+        entryArea.classList.remove("d-none");
+
+        entryBtn.addEventListener("click", () => {
+          const name = playerNameInput.value;
+
+          // 空チェック
+          if (!name.trim()) {
+            entryMessage.textContent = "名前を入力してください";
+            entryMessage.className = "text-danger";
+            return;
+          }
+
+          // スペース禁止
+          if (/\s/.test(name)) {
+            entryMessage.textContent = "スペースは使用できません";
+            entryMessage.className = "text-danger";
+            return;
+          }
+
+          // 使用可能文字チェック
+          const validPattern = /^[A-Za-z0-9ぁ-んァ-ヶ一-龠々ー]+$/;
+
+          if (!validPattern.test(name)) {
+            entryMessage.textContent =
+              "使用できるのは英字・数字・日本語のみです";
+            entryMessage.className = "text-danger";
+            return;
+          }
+
+          const updated = saveRanking(name, myScore);
+          renderRanking(updated);
+
+          entryMessage.textContent = "ランキングに登録しました！";
+          entryMessage.className = "text-success";
+          entryBtn.disabled = true;
+        });
+      }
+
+      // ==============================
+      // 左ナビ：選択中コースをアクティブ表示
+      // ==============================
+      document.querySelectorAll("nav a[href*='course=']").forEach((link) => {
+        const url = new URL(link.href);
+        const navCourse = url.searchParams.get("course");
+
+        if (navCourse === courseKey) {
+          link.classList.add("fw-bold", "text-info");
+        }
+      });
+
+      // ==============================
+      // ランキング左ナビ：タブ切り替え
+      // ==============================
+      const tabBasic = document.getElementById("tab-basic");
+      const tabModern = document.getElementById("tab-modern");
+      const basicCourses = document.getElementById("basic-courses");
+      const modernCourses = document.getElementById("modern-courses");
+
+      function switchTab(type) {
+        if (type === "modern") {
+          basicCourses.style.display = "none";
+          modernCourses.style.display = "block";
+          tabModern.classList.add("active");
+          tabBasic.classList.remove("active");
+        } else {
+          basicCourses.style.display = "block";
+          modernCourses.style.display = "none";
+          tabBasic.classList.add("active");
+          tabModern.classList.remove("active");
+        }
+      }
+
+      tabBasic.addEventListener("click", () => switchTab("basic"));
+      tabModern.addEventListener("click", () => switchTab("modern"));
+
+      document.querySelectorAll(".wt-course-btn").forEach((btn) => {
+        const url = new URL(btn.href);
+        if (url.searchParams.get("course") === courseKey) {
+          btn.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>

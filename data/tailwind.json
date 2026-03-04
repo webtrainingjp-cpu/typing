@@ -1,0 +1,302 @@
+[
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "padding",
+        "text": "p-4"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "margin",
+        "text": "m-4"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "text色",
+        "text": "text-white"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "背景色",
+        "text": "bg-black"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "フォントサイズ",
+        "text": "text-lg"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "中央寄せ",
+        "text": "text-center"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "太字",
+        "text": "font-bold"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "丸角",
+        "text": "rounded-lg"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "影",
+        "text": "shadow-md"
+    },
+    {
+        "course": "tailwind",
+        "level": "basic",
+        "title": "幅",
+        "text": "w-full"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "高さ",
+        "text": "h-screen"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "Flex",
+        "text": "flex"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "縦中央",
+        "text": "items-center"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "横中央",
+        "text": "justify-center"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "Flex方向",
+        "text": "flex-col"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "Gap",
+        "text": "gap-4"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "Grid",
+        "text": "grid"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "Grid列",
+        "text": "grid-cols-3"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "Grid間隔",
+        "text": "gap-6"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "絶対配置",
+        "text": "absolute"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "相対配置",
+        "text": "relative"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "上配置",
+        "text": "top-0"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "左配置",
+        "text": "left-0"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "z-index",
+        "text": "z-50"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "overflow",
+        "text": "overflow-hidden"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "透明度",
+        "text": "opacity-50"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "hover",
+        "text": "hover:bg-blue-500"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "transition",
+        "text": "transition-all"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "duration",
+        "text": "duration-300"
+    },
+    {
+        "course": "tailwind",
+        "level": "intermediate",
+        "title": "ease",
+        "text": "ease-in-out"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "レスポンシブsm",
+        "text": "sm:text-lg"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "レスポンシブmd",
+        "text": "md:flex"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "レスポンシブlg",
+        "text": "lg:grid-cols-4"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "レスポンシブxl",
+        "text": "xl:w-1/2"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "darkモード",
+        "text": "dark:bg-gray-800"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "before疑似要素",
+        "text": "before:content-['']"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "after疑似要素",
+        "text": "after:absolute"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "group hover",
+        "text": "group-hover:text-red-500"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "peer",
+        "text": "peer-focus:border-blue-500"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "aspect比",
+        "text": "aspect-square"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "line clamp",
+        "text": "line-clamp-2"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "backdrop blur",
+        "text": "backdrop-blur-md"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "gradient",
+        "text": "bg-gradient-to-r from-blue-500 to-purple-600"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "ring",
+        "text": "ring-2 ring-blue-400"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "outline none",
+        "text": "outline-none"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "truncate",
+        "text": "truncate"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "scroll smooth",
+        "text": "scroll-smooth"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "pointer events",
+        "text": "pointer-events-none"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "select none",
+        "text": "select-none"
+    },
+    {
+        "course": "tailwind",
+        "level": "advanced",
+        "title": "最終問題",
+        "text": "flex items-center justify-center h-screen bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold text-xl rounded-lg shadow-lg"
+    }
+]

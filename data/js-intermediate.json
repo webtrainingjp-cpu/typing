@@ -1,0 +1,308 @@
+[
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "スクロール位置取得",
+        "text": "window.scrollY;"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "スクロールイベント",
+        "text": "window.addEventListener(\"scroll\", () => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "IntersectionObserver生成",
+        "text": "const observer = new IntersectionObserver(() => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "要素の監視開始",
+        "text": "observer.observe(element);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "オプション付きObserver",
+        "text": "const observer = new IntersectionObserver(cb, options);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "fetch基本",
+        "text": "fetch(url).then(res => res.json());"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "fetch then処理",
+        "text": "fetch(url).then(res => res.json()).then(data => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "fetch エラー処理",
+        "text": "fetch(url).catch(error => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "async関数",
+        "text": "async function loadData() { }"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "await fetch",
+        "text": "const res = await fetch(url);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "await json変換",
+        "text": "const data = await res.json();"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "try catch構文",
+        "text": "try { } catch (e) { }"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "localStorage 保存",
+        "text": "localStorage.setItem(\"key\", value);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "localStorage 取得",
+        "text": "localStorage.getItem(\"key\");"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "JSON文字列化",
+        "text": "JSON.stringify(data);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "JSON復元",
+        "text": "JSON.parse(text);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "data属性取得",
+        "text": "element.dataset.id;"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "イベント委譲",
+        "text": "parent.addEventListener(\"click\", e => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "closest取得",
+        "text": "e.target.closest(\".item\");"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "setInterval",
+        "text": "setInterval(() => { }, 1000);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "clearInterval",
+        "text": "clearInterval(timerId);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "スクロール位置取得",
+        "text": "window.scrollY;"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "スクロールイベント",
+        "text": "window.addEventListener(\"scroll\", () => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "IntersectionObserver生成",
+        "text": "const observer = new IntersectionObserver(() => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "要素の監視開始",
+        "text": "observer.observe(element);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "オプション付きObserver",
+        "text": "const observer = new IntersectionObserver(cb, options);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "fetch基本",
+        "text": "fetch(url).then(res => res.json());"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "fetch then処理",
+        "text": "fetch(url).then(res => res.json()).then(data => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "fetch エラー処理",
+        "text": "fetch(url).catch(error => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "async関数",
+        "text": "async function loadData() { }"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "await fetch",
+        "text": "const res = await fetch(url);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "await json変換",
+        "text": "const data = await res.json();"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "try catch構文",
+        "text": "try { } catch (e) { }"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "localStorage 保存",
+        "text": "localStorage.setItem(\"key\", value);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "localStorage 取得",
+        "text": "localStorage.getItem(\"key\");"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "JSON文字列化",
+        "text": "JSON.stringify(data);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "JSON復元",
+        "text": "JSON.parse(text);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "data属性取得",
+        "text": "element.dataset.id;"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "イベント委譲",
+        "text": "parent.addEventListener(\"click\", e => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "closest取得",
+        "text": "e.target.closest(\".item\");"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "setInterval",
+        "text": "setInterval(() => { }, 1000);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "clearInterval",
+        "text": "clearInterval(timerId);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "存在チェック",
+        "text": "if (!element) return;"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "配列が空か判定",
+        "text": "if (items.length === 0) { }"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "要素生成",
+        "text": "const div = document.createElement(\"div\");"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "HTML挿入",
+        "text": "element.innerHTML = html;"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "要素追加",
+        "text": "parent.appendChild(element);"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "Promise生成",
+        "text": "new Promise((resolve, reject) => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "Promise then",
+        "text": "promise.then(result => { });"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "論理AND短縮構文",
+        "text": "isActive && element.classList.add(\"active\");"
+    },
+    {
+        "course": "js",
+        "level": "intermediate",
+        "title": "論理ORデフォルト値",
+        "text": "const value = input || \"default\";"
+    }
+]

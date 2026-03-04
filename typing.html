@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="ja" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Web制作・プログラミング学習者向けのタイピング練習ページ。HTML・CSS・JavaScript・PHP・MySQL・WordPressなどの基礎コードから、React・Vue・Next.js・TypeScript・Tailwind CSS・Python・Djangoまで、実務で使われるコード入力を想定した実践的トレーニングができます。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>
+      プログラミング向けタイピング練習ページ｜基礎からモダン開発まで対応｜WebTraining
+    </title>
+
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="text-light">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- ================= 左ナビ ================= -->
+        <nav
+          class="col-md-3 col-lg-3 border-end nav-area wt-glass-nav order-2 order-md-1"
+        >
+          <h1 class="typing_title">
+            <a href="https://typing.webtraining.jp/"
+              ><img src="images/logo275_275.svg" class="img-fluid"
+            /></a>
+          </h1>
+
+          <!-- タブ -->
+          <div class="btn-group w-100 mb-3" role="group">
+            <button id="tab-basic" class="btn btn-sm btn-outline-light active">
+              基礎コード
+            </button>
+            <button id="tab-modern" class="btn btn-sm btn-outline-light">
+              モダン開発
+            </button>
+          </div>
+
+          <!-- ===== 基礎コード ===== -->
+          <div id="basic-courses">
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/html-basic.json"
+            >
+              HTML Basic
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/html-intermediate.json"
+            >
+              HTML Intermediate
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/css-basic.json"
+            >
+              CSS Basic
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/css-intermediate.json"
+            >
+              CSS Intermediate
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/css-practice.json"
+            >
+              CSS Practice
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/js-basic.json"
+            >
+              JS Basic
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/js-intermediate.json"
+            >
+              JS Intermediate
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/php-basic.json"
+            >
+              PHP Basic
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/php-intermediate.json"
+            >
+              PHP Intermediate
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/wordpress-basic.json"
+            >
+              WordPress Basic
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/wordpress-intermediate.json"
+            >
+              WordPress Intermediate
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/mysql-basic.json"
+            >
+              MySQL Basic
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/mysql-intermediate.json"
+            >
+              MySQL Intermediate
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/bootstrap.json"
+            >
+              Bootstrap
+            </button>
+          </div>
+
+          <!-- ===== モダン開発 ===== -->
+          <div id="modern-courses" style="display: none">
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/symbols.json"
+            >
+              記号
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/react.json"
+            >
+              React
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/vue.json"
+            >
+              Vue
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/next.json"
+            >
+              Next.js
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/typescript.json"
+            >
+              TypeScript
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/tailwind.json"
+            >
+              Tailwind
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/python-basic.json"
+            >
+              Python
+            </button>
+            <button
+              class="course-btn btn btn-sm btn-outline-light w-100 mb-2 wt-course-btn"
+              data-json="data/django.json"
+            >
+              Django
+            </button>
+          </div>
+        </nav>
+
+        <!-- ================= メイン ================= -->
+        <main class="col-md-9 col-lg-9 px-lg-5 order-1 order-md-2">
+          <h2 id="currentCourse" class="subtitle">
+            Web制作向けタイピング練習コースを選択
+          </h2>
+          <section class="mb-4">
+            <p class="text-white">
+              このタイピング練習は、Web制作・プログラミングを学習中の方を対象に、
+              実際のコーディングを想定したコード入力を練習できるツールです。
+              HTML・CSS・JavaScript・PHP・MySQL・WordPressなどの基礎言語から、
+              React・Vue・Next.js・TypeScript・Tailwind
+              CSS・Python・Djangoといった
+              モダンな開発技術まで、学習でよく使う構文や記述を中心に構成されています。
+            </p>
+            <p>
+              時間は５分。出題は学習向けとシャッフルがあります。最初から始めたい時は、リセットボタンをクリックしてください。
+            </p>
+          </section>
+          <!-- ステータス -->
+          <div id="statusArea" class="d-flex justify-content-between mb-2">
+            <div class="d-flex gap-5 align-items-center">
+              <div>残り <span id="time">300</span> 秒</div>
+              <!-- 例：#statusArea の右側 .d-flex gap-3 の中に入れる -->
+              <label class="d-flex align-items-center gap-2 small m-0">
+                <span class="text-white">制限時間の変更</span>
+                <select
+                  id="timeSelect"
+                  class="form-select form-select-sm w-auto"
+                >
+                  <option value="60">60秒(1分)</option>
+                  <option value="120">120秒(2分)</option>
+                  <option value="180">180秒(3分)</option>
+                  <option value="300" selected>300秒(5分)</option>
+                </select>
+              </label>
+
+              <div>進捗 <span id="qProgress">0/0</span></div>
+              <div>現在のスコア <span id="score">0</span></div>
+            </div>
+            <div class="d-flex gap-3">
+              <button id="resetBtn" class="btn btn-sm btn-outline-warning">
+                リセット
+              </button>
+              <div class="btn-group" role="group" aria-label="出題モード">
+                <button
+                  id="orderBtn"
+                  type="button"
+                  class="btn btn-sm btn-outline-info active"
+                  aria-pressed="true"
+                >
+                  順番(学習向)
+                </button>
+                <button
+                  id="shuffleBtn"
+                  type="button"
+                  class="btn btn-sm btn-outline-info"
+                  aria-pressed="false"
+                >
+                  シャッフル（実力測定）
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- 出題モード切替 -->
+
+          <!-- タイピングエリア -->
+          <div class="card bg-dark border-light mb-2 wt-glass">
+            <div class="card-body text-center typing-area wt-glass-inner">
+              <!-- 問題タイトル -->
+              <div id="questionTitle" class="mb-2 text-info fw-semibold"></div>
+
+              <!-- 問題文 -->
+              <div
+                id="question"
+                class="fs-4 mb-0 text-secondary typing-area-input roboto-mono"
+              >
+                Enterキーで開始してください
+              </div>
+              <!-- ipadなどのキーボードを出す -->
+              <input
+                type="text"
+                id="typingInput"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                inputmode="text"
+                enterkeyhint="done"
+                style="
+                  position: absolute;
+                  opacity: 0;
+                  pointer-events: none;
+                  height: 0;
+                "
+              />
+            </div>
+          </div>
+          <!-- キャプスロック -->
+          <div id="capsWarning" class="caps-warning d-none">
+            CapsLock が ON になっています<br />
+            英数字入力にならない場合は CapsLock を解除してください
+          </div>
+          <!-- 日本語入力ON -->
+          <div id="imeWarning" class="text-warning small d-none">
+            ※ 日本語入力がONになっています（英数入力に切り替えてください）
+          </div>
+          <!-- プログレスバー -->
+          <div
+            id="progressArea"
+            class="progress mt-4 mb-4"
+            style="height: 10px; visibility: hidden"
+          >
+            <div
+              id="progressBar"
+              class="progress-bar bg-primary"
+              style="width: 100%"
+            ></div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-12 col-md-7">
+              <div class="card bg-dark border-light commnet mb-2">
+                <div class="card-body d-flex flex-column p-3">
+                  <ol>
+                    <li>学習したいコースを選択します。</li>
+                    <li>
+                      タイピング画面で
+                      <strong>Enterキー</strong> を押すとスタート。
+                    </li>
+                    <li>
+                      制限時間内（標準は<strong>5分</strong>）に表示されたコードを正確に入力します。制限時間の変更も可能です。
+                    </li>
+                    <li>
+                      終了後に
+                      <strong>正解数・誤打数・正解率・CPM</strong>
+                      を表示します。 よく間違える文字列（ミスが多い部分）は
+                      <strong>結果画面のみ</strong> に表示されます。
+                    </li>
+                    <li>
+                      練習途中でも左のナビゲーションからコース切替が可能です（切替すると出題が変わります）。
+                    </li>
+                    <li>
+                      タイピング終了後、<strong>自分のタイピング記録</strong>
+                      を保存するとスコアが保存されます。 保存したスコアは
+                      <strong>ランキング</strong> に反映されます
+                    </li>
+                    <li>
+                      <a href="record.html" class="text-info"
+                        >自分の記録を確認しましょう</a
+                      >
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-5">
+              <div class="card bg-dark border-light commnet mb-2">
+                <div class="card-body d-flex flex-column">
+                  <ul class="mb-0">
+                    <li><strong>S</strong>：95%以上（非常に正確）</li>
+                    <li><strong>A</strong>：90%以上（かなり良い精度）</li>
+                    <li><strong>B</strong>：80%以上（とても良いです）</li>
+                    <li>
+                      <strong>C</strong>：70%以上（少しずつ慣れてきています）
+                    </li>
+                    <li><strong>D</strong>：70%未満（毎日10分練習）</li>
+                  </ul>
+                  <div class="mt-1">
+                    <strong>CPM</strong>（Characters Per
+                    Minute）は、制限時間全体を通して
+                    1分あたりに正しく入力できた文字数の平均値です。<br />
+                    自分の記録内にある<strong>ランキング</strong>は、正解率やCPMなどを元にスコア化して並び替えます
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <footer class="text-center py-4 border-top border-secondary">
+      <p>
+        <a href="https://webtraining.jp/" target="_blank">
+          <img src="images/logo_white.svg" alt="Webtraining.jp" width="300" />
+        </a>
+      </p>
+      <nav class="mb-3 d-flex justify-content-center gap-3 flex-wrap">
+        <a href="index.php" class="btn btn-outline-info btn-sm">ホーム</a>
+        <a href="typing.html" class="btn btn-outline-info btn-sm">タイピング</a>
+        <a href="record.html" class="btn btn-outline-info btn-sm">自分の記録</a>
+        <a href="about.php" class="btn btn-outline-info btn-sm"
+          >このサイトについて</a
+        >
+        <a href="faq.php" class="btn btn-outline-info btn-sm">FAQ</a>
+        <a href="contact.php" class="btn btn-outline-info btn-sm"
+          >お問い合わせ</a
+        >
+      </nav>
+
+      <p class="m-0">
+        <small>© WebTraining.jp 2026</small>
+      </p>
+    </footer>
+
+    <!-- ================= JS ================= -->
+    <script src="js/course-config.js?v=20260226"></script>
+    <script src="js/typing.js?v=20260226"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const typingInput = document.getElementById("typingInput");
+        const typingArea = document.querySelector(".typing-area");
+
+        if (typingArea && typingInput) {
+          typingArea.addEventListener("click", () => {
+            typingInput.focus();
+          });
+        }
+
+        const tabBasic = document.getElementById("tab-basic");
+        const tabModern = document.getElementById("tab-modern");
+        const basicCourses = document.getElementById("basic-courses");
+        const modernCourses = document.getElementById("modern-courses");
+
+        if (!tabBasic || !tabModern || !basicCourses || !modernCourses) return;
+
+        // ==============================
+        // 表示切替共通関数
+        // ==============================
+        function switchTab(type) {
+          if (type === "modern") {
+            basicCourses.style.display = "none";
+            modernCourses.style.display = "block";
+            tabModern.classList.add("active");
+            tabBasic.classList.remove("active");
+          } else {
+            basicCourses.style.display = "block";
+            modernCourses.style.display = "none";
+            tabBasic.classList.add("active");
+            tabModern.classList.remove("active");
+          }
+        }
+
+        // ==============================
+        // タブクリック
+        // ==============================
+        tabBasic.addEventListener("click", () => switchTab("basic"));
+        tabModern.addEventListener("click", () => switchTab("modern"));
+
+        // ==============================
+        // URLパラメータで初期状態決定
+        // ==============================
+        const params = new URLSearchParams(window.location.search);
+        const courseParam = params.get("course");
+
+        const modernList = [
+          "react",
+          "vue",
+          "next",
+          "ts",
+          "typescript",
+          "tailwind",
+          "python-basic",
+          "django",
+          "symbols",
+        ];
+
+        if (modernList.includes(courseParam)) {
+          switchTab("modern");
+        } else {
+          switchTab("basic");
+        }
+
+        // ここを追記（初期コースを確実に反映）
+        if (
+          courseParam &&
+          window.COURSE_MAP &&
+          window.COURSE_MAP[courseParam] &&
+          typeof window.setCourse === "function"
+        ) {
+          window.setCourse(courseParam, window.COURSE_MAP[courseParam].json);
+        }
+      });
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "WebTraining Typing",
+        "operatingSystem": "Web",
+        "applicationCategory": "EducationalApplication",
+        "url": "https://typing.webtraining.jp/typing.html",
+        "description": "HTML・CSS・JavaScript・PHPなど、Web制作に必要なコード入力を想定したタイピング練習Webアプリ。",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "JPY"
+        },
+        "creator": {
+          "@type": "Organization",
+          "name": "WebTraining",
+          "url": "https://webtraining.jp/"
+        }
+      }
+    </script>
+  </body>
+</html>

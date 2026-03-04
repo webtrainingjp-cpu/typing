@@ -1,0 +1,194 @@
+[
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "相対位置指定",
+        "text": "position:relative;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "絶対位置指定",
+        "text": "position:absolute;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "固定位置指定",
+        "text": "position:fixed;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "重なり順",
+        "text": "z-index:10;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "ポジションからの上左位置指定",
+        "text": "top:10px;left:10px;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "ポジションからの下右位置指定",
+        "text": "bottom:10px;right:10px;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "透明度",
+        "text": "opacity:0.8;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "背景画像",
+        "text": "background-image:url(\"bg.jpg\");"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "背景サイズ指定(横幅・高さ)",
+        "text": "background-size:200px 300px;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "背景サイズ",
+        "text": "background-size:cover;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "背景中央配置",
+        "text": "background-position:center;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "影の指定",
+        "text": "box-shadow:0 4px 10px rgba(0,0,0,0.2);"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "文字の影",
+        "text": "text-shadow:0 2px 4px rgba(0,0,0,0.3);"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "ホバー時の色変更",
+        "text": ":hover{color:#ff6600;}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "擬似要素 before",
+        "text": "::before{content:\"\";}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "擬似クラス 最初の要素",
+        "text": ":first-child{margin-top:0;}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "擬似クラス 最後の要素",
+        "text": ":last-child{border:none;}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "擬似クラス nth-child",
+        "text": ":nth-child(2){margin-right:0;}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "レスポンシブ対応",
+        "text": "@media (max-width:768px){}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "文字サイズ clamp関数",
+        "text": "font-size:clamp(14px,2vw,18px);"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "トランスフォーム 縦方向",
+        "text": "transform:translateY(-50%);"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "スケール変形",
+        "text": "transform:scale(1.1);"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "トランジション指定",
+        "text": "transition:all 0.3s ease-in-out;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "フレックス折り返し",
+        "text": "flex-wrap:wrap;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "フレックス間隔",
+        "text": "gap:20px;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "中央配置（absolute）",
+        "text": "top:50%;left:50%; transform:translate(-50%,-50%);"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "背景画像の繰り返しなし",
+        "text": "background-repeat:no-repeat;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "背景画像まとめ指定",
+        "text": "background:url(\"bg.jpg\") center / cover no-repeat;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "擬似要素 after（装飾）",
+        "text": "::after{content:\"\"; display:block;}"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "クリック不可",
+        "text": "pointer-events:none;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "スクロール禁止",
+        "text": "overflow:hidden;"
+    },
+    {
+        "course": "css",
+        "level": "intermediate",
+        "title": "アニメーション指定",
+        "text": "animation:fadeIn 0.5s ease;"
+    }
+]

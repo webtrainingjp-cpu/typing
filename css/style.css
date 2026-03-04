@@ -1,0 +1,370 @@
+:root {
+  /* Brand */
+  --wt-green: #74C8CE;
+
+  /* Glass */
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-strong: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.14);
+
+  /* Text */
+  --text-main: #f1f1f1;
+  --text-sub: #b5b5b5;
+  --text-muted: #6c757d;
+  --text-error: #dc3545;
+}
+
+/* ベーススタイル */
+
+body {
+  user-select: none;
+  background: linear-gradient(180deg,
+      #0e0a00 0%,
+      #01381d 25%,
+      #123000 50%,
+      #1a1a1a 100%);
+  color: var(--text-main);
+  font-size: 0.9rem;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style-position: inside;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+pre {
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+
+/* タイピングの時のフォント */
+.roboto-mono {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* ガラスUI*/
+.wt-glass {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(116, 200, 206, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(116, 200, 206, 0.35),
+    0 12px 30px rgba(0, 0, 0, 0.6);
+  color: var(--text-main);
+
+  max-width: 100%;
+  margin: auto;
+  padding: 1.5rem;
+}
+.wt-glass-card {
+  height: 100%;
+}
+.wt-glass-top {
+  max-width: 60%;
+  margin: auto;
+  padding: 2rem;
+}
+
+.wt-glass-inner {
+  border-radius: 14px;
+}
+
+.wt-glass {
+  text-align: center;
+  font-size: 1rem;
+}
+
+.wt-glass p {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* キャプスロック */
+.caps-warning {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(220, 53, 69, 0.9); /* Bootstrap danger 系 */
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  z-index: 1000;
+}
+
+
+
+/* 段組 */
+.basic-zone,
+.modern-zone {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+
+/* ガラスカード */
+.basic-zone .wt-glass-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.5);
+}
+
+.basic-zone .wt-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.modern-zone .wt-glass-card {
+  background: linear-gradient(145deg,
+      rgba(116, 200, 206, 0.08),
+      rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(116, 200, 206, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(116, 200, 206, 0.25),
+    0 12px 30px rgba(0, 0, 0, 0.7);
+}
+
+.modern-zone .wt-glass-card:hover {
+  border-color: var(--wt-green);
+  box-shadow:
+    0 0 12px rgba(116, 200, 206, 0.4),
+    0 0 24px rgba(116, 200, 206, 0.2),
+    0 14px 40px rgba(0, 0, 0, 0.8);
+  transform: translateY(-3px);
+}
+
+.modern-zone .wt-glass-card h3 {
+  color: var(--wt-green);
+  text-shadow: 0 0 6px rgba(116, 200, 206, 0.5);
+}
+
+.wt-glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  font-size: 0.8rem;
+}
+
+.wt-glass-card h2 {
+  backdrop-filter: blur(12px);
+  font-size: 1.15rem;
+  padding: 0.25em;
+}
+
+.wt-glass-card:hover {
+  border-color: rgba(116, 200, 206, 0.6);
+  box-shadow:
+    0 0 0 1px rgba(116, 200, 206, 0.35),
+    0 12px 30px rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.wt-glass-card h3 {
+  font-size: 1.1rem;
+  min-height: 30px;
+}
+
+/* 見出し・レイアウト */
+.title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.typing_title {
+  margin: 1rem 0 1rem;
+  text-align: center;
+}
+
+.typing_title img {
+  max-width: 50%;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-image: linear-gradient(90deg, #363636ca 0%, #272727 100%);
+  padding: 0.5rem 0 0.5rem 0.5rem;
+}
+
+.title-modern {
+  color: var(--wt-green);
+  text-shadow: 0 0 8px rgba(116, 200, 206, 0.6);
+}
+
+.main-area,
+.nav-area {
+  padding: 0 3rem;
+}
+
+/* ナビゲーション */
+.wt-glass-nav {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  margin-bottom: 0;
+  padding-bottom: 3rem;
+}
+
+.course-btn {
+  padding: 0.65em 0;
+}
+
+.course-btn.active {
+  background-color: var(--wt-green);
+  border-color: var(--wt-green);
+  color: #003b3f;
+}
+
+
+/* ボタン */
+
+.btn-outline-light {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--text-main);
+  font-size: 0.8rem;
+}
+
+.btn-outline-light:hover {
+  background: rgba(116, 200, 206, 0.15);
+  border-color: var(--wt-green);
+  color: var(--wt-green);
+}
+
+.modern-zone .btn-outline-light {
+  border-color: var(--wt-green);
+  color: var(--wt-green);
+}
+
+.modern-zone .btn-outline-light:hover {
+  background: rgba(116, 200, 206, 0.2);
+  box-shadow: 0 0 10px rgba(116, 200, 206, 0.4);
+}
+
+
+
+/* タイピングエリア */
+.typing-area {
+  /* padding: 2rem 0; */
+  position: relative;
+  cursor: text;
+}
+
+.typing-area-input {
+  color: var(--text-sub);
+  letter-spacing: 0.05em;
+}
+
+
+/* 問題文 */
+#question {
+  /* letter-spacing: 0.2rem; */
+  white-space: pre-wrap;
+  line-height: 1;
+}
+
+
+/* タイピング状態 */
+
+/* 入力済み */
+.typed {
+  color: var(--text-muted);
+}
+
+/* 未入力 */
+.remaining {
+  color: #e9ecef;
+}
+
+/* 現在入力中 */
+.current {
+  color: var(--wt-green);
+  border-bottom: 2px solid var(--wt-green);
+}
+
+/* ミス */
+.current.error {
+  color: var(--text-error);
+  border-bottom-color: var(--text-error);
+    text-shadow: 0 0 6px rgba(220, 53, 69, 0.8);
+}
+
+
+/* プログレスバー */
+
+#progressBar {
+  background: linear-gradient(
+    90deg,
+    rgba(116, 200, 206, 0.9),
+    rgba(116, 200, 206, 0.6)
+  );
+  box-shadow:
+    0 0 8px rgba(116, 200, 206, 0.6),
+    0 0 16px rgba(116, 200, 206, 0.3);
+}
+
+
+
+.commnet {
+  font-size: 80%;
+}
+
+footer {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* ランキング */
+#rankingList table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#rankingList th,
+#rankingList td {
+  padding: 6px 8px;
+  border-bottom: 1px solid #444;
+  font-size: 14px;
+}
+
+#rankingList tr.me {
+  background-color: rgba(116, 200, 206, 0.2);
+  font-weight: bold;
+}
+
+
+.miss_text{
+    width: 50%;
+    margin: auto;
+    background: #d1fcbc;
+    font-size: 19px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.miss_rank{
+      width: 50%;
+    margin: auto;
+    background: #fbfdffdb;
+    font-size: 19px;
+    padding: 10px;
+    border-radius: 10px;
+}

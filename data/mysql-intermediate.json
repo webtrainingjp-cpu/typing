@@ -1,0 +1,194 @@
+[
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "INNER JOIN 基本",
+        "text": "SELECT * FROM posts INNER JOIN users ON posts.user_id = users.id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "LEFT JOIN",
+        "text": "SELECT * FROM posts LEFT JOIN users ON posts.user_id = users.id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "JOIN + カラム指定",
+        "text": "SELECT posts.title, users.name FROM posts INNER JOIN users ON posts.user_id = users.id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "JOIN + WHERE",
+        "text": "SELECT * FROM posts INNER JOIN users ON posts.user_id = users.id WHERE users.id = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "テーブル別名",
+        "text": "SELECT * FROM posts AS p INNER JOIN users AS u ON p.user_id = u.id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "GROUP BY 基本",
+        "text": "SELECT user_id FROM posts GROUP BY user_id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "GROUP BY + COUNT",
+        "text": "SELECT user_id, COUNT(*) FROM posts GROUP BY user_id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "GROUP BY + WHERE",
+        "text": "SELECT user_id, COUNT(*) FROM posts WHERE status = 1 GROUP BY user_id;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "HAVING句",
+        "text": "SELECT user_id, COUNT(*) FROM posts GROUP BY user_id HAVING COUNT(*) >= 5;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "SUM集計",
+        "text": "SELECT SUM(price) FROM orders;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "AVG平均",
+        "text": "SELECT AVG(price) FROM orders;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "MAX取得",
+        "text": "SELECT MAX(price) FROM orders;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "MIN取得",
+        "text": "SELECT MIN(price) FROM orders;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "DISTINCT指定",
+        "text": "SELECT DISTINCT user_id FROM posts;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "サブクエリ WHERE",
+        "text": "SELECT * FROM users WHERE id IN (SELECT user_id FROM posts);"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "サブクエリ FROM",
+        "text": "SELECT * FROM (SELECT * FROM posts) AS p;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "EXISTS句",
+        "text": "SELECT * FROM users WHERE EXISTS (SELECT 1 FROM posts WHERE posts.user_id = users.id);"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "CASE文",
+        "text": "SELECT name, CASE WHEN status = 1 THEN '公開' ELSE '非公開' END FROM posts;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "日付比較",
+        "text": "SELECT * FROM posts WHERE created_at >= '2024-01-01';"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "NOW関数",
+        "text": "SELECT NOW();"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "日付差分",
+        "text": "SELECT DATEDIFF(NOW(), created_at) FROM posts;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "ALTER TABLE カラム追加",
+        "text": "ALTER TABLE users ADD age INT;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "ALTER TABLE カラム変更",
+        "text": "ALTER TABLE users MODIFY age VARCHAR(3);"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "ALTER TABLE カラム削除",
+        "text": "ALTER TABLE users DROP age;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "INDEX追加",
+        "text": "CREATE INDEX idx_user_id ON posts(user_id);"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "INDEX削除",
+        "text": "DROP INDEX idx_user_id ON posts;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "トランザクション開始",
+        "text": "START TRANSACTION;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "コミット",
+        "text": "COMMIT;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "ロールバック",
+        "text": "ROLLBACK;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "INSERT SELECT",
+        "text": "INSERT INTO archive_posts SELECT * FROM posts;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "UPDATE JOIN",
+        "text": "UPDATE posts INNER JOIN users ON posts.user_id = users.id SET posts.status = 1;"
+    },
+    {
+        "course": "mysql",
+        "level": "intermediate",
+        "title": "DELETE JOIN",
+        "text": "DELETE posts FROM posts INNER JOIN users ON posts.user_id = users.id WHERE users.id = 1;"
+    }
+]

@@ -1,0 +1,236 @@
+[
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "コンソール出力",
+        "text": "console.log(\"Hello World\");"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "変数宣言 let",
+        "text": "let count = 0;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "定数宣言 const",
+        "text": "const max = 10;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "文字列結合",
+        "text": "const text = \"Hello\" + \" World\";"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "算術演算子(足し算)",
+        "text": "const total = 100 + 200;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "算術演算子(引き算)",
+        "text": "const subtraction = 500 - 300;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "算術演算子(掛け算)",
+        "text": "const multiplication = 300 * 3;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "算術演算子(割り算)",
+        "text": "const division = 300 / 3;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "算術演算子(剰余)",
+        "text": "const surplus = 10 % 4;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "複合代入演算子(total = total + 100 の省略)",
+        "text": "total += 100;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "複合代入演算子(total = total - 100 の省略)",
+        "text": "total -= 100;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "インクリメント演算子",
+        "text": "i++"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "デクリメント演算子",
+        "text": "i--"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "配列の宣言",
+        "text": "const items = [];"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "配列の要素取得",
+        "text": "items[0];"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "オブジェクト",
+        "text": "const user = { name: \"Taro\" };"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "プロパティ取得",
+        "text": "user.name;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "関数宣言",
+        "text": "function hello() { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "アロー関数",
+        "text": "const hello = () => { };"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "条件分岐 if",
+        "text": "if (count === 0) { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "比較演算子（厳密に等しい）",
+        "text": "count === 10;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "比較演算子（より大きい）",
+        "text": "count > 5;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "論理演算子 AND(なおかつ)",
+        "text": "if (count > 0 && count < 10) { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "論理演算子 OR(または)",
+        "text": "if (count === 0 || count === 10) { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "論理演算子 NOT",
+        "text": "if (!isActive) { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "条件分岐 else",
+        "text": "if (count === 0) { } else { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "条件分岐 else if",
+        "text": "if (count > 10) { } else if (count > 5) { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "for文(回数を繰り返す)",
+        "text": "for (let i = 0; i < 10; i++) { }"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "DOM取得 class=boxを取得",
+        "text": "document.querySelector(\".box\");"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "複数DOM取得class=itemを複数取得",
+        "text": "document.querySelectorAll(\".item\");"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "クリックイベント（ボタンをクリックしたら）",
+        "text": "button.addEventListener(\"click\", () => { });"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "class追加(elementの場所にactiveというクラスを付与)",
+        "text": "element.classList.add(\"active\");"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "class削除(elementの場所にactiveというクラスを削除)",
+        "text": "element.classList.remove(\"active\");"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "class切り替え(elementの場所にactiveというクラスをつけたりはずしたり)",
+        "text": "element.classList.toggle(\"active\");"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "テキスト変更",
+        "text": "element.textContent = \"OK\";"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "タイマー処理",
+        "text": "setTimeout(() => { }, 1000);"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "真偽値 true",
+        "text": "const isOpen = true;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "真偽値 false",
+        "text": "const isHidden = false;"
+    },
+    {
+        "course": "js",
+        "level": "basic",
+        "title": "クラスを持っているか判定",
+        "text": "element.classList.contains(\"active\");"
+    }
+]

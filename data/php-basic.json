@@ -1,0 +1,296 @@
+[
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "PHP開始タグ",
+        "text": "<?php"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "PHP終了タグ",
+        "text": "?>"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "変数宣言",
+        "text": "$count = 0;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "文字列代入",
+        "text": "$name = \"Taro\";"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "数値代入",
+        "text": "$price = 1000;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "echo出力",
+        "text": "echo $name;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "文字列連結",
+        "text": "echo \"Hello \" . $name;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "算術演算子（足し算)",
+        "text": "$price = 100 + 200;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "算術演算子（引き算)",
+        "text": "$subtraction = 200 - 100;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "算術演算子（掛け算)",
+        "text": "$multiplication = 100 * 10;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "算術演算子（割り算)",
+        "text": "$division= 100 / 10;"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "改行タグ出力",
+        "text": "echo \"<br>\";"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "HTML埋め込み",
+        "text": "<?php echo $title; ?>"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "配列宣言",
+        "text": "$items = [];"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "配列代入",
+        "text": "$items[] = \"apple\";"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "配列取得",
+        "text": "$items[0];"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "連想配列",
+        "text": "$user = [\"name\" => \"Taro\"]; "
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "連想配列取得",
+        "text": "$user[\"name\"];"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "if文",
+        "text": "if ($count === 0) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "else文",
+        "text": "else { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "elseif文",
+        "text": "elseif ($count > 0) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 等しい",
+        "text": "if ($a == $b) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 厳密に等しい",
+        "text": "if ($a === $b) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 等しくない",
+        "text": "if ($a != $b) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 大なり",
+        "text": "if ($count > 10) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 小なり",
+        "text": "if ($count < 5) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 以上",
+        "text": "if ($count >= 1) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "論理演算子 AND",
+        "text": "if ($a > 0 && $b > 0) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "論理演算子 OR",
+        "text": "if ($a === 0 || $b === 0) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "三項演算子",
+        "text": "$result = $flag ? \"OK\" : \"NG\";"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "論理演算子 NOT",
+        "text": "if (!$isLogin) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "比較演算子 以下",
+        "text": "if ($count <= 10) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "for文",
+        "text": "for ($i = 0; $i < 10; $i++) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "foreach文",
+        "text": "foreach ($items as $item) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "while文",
+        "text": "while ($i < 10) { }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "while文（カウンタ使用）",
+        "text": "$i = 0; while ($i < 5) { $i++; }"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "GET取得",
+        "text": "$_GET[\"name\"];"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "POST取得",
+        "text": "$_POST[\"email\"];"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "isset判定",
+        "text": "isset($_POST[\"name\"]);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "empty判定",
+        "text": "empty($name);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "エスケープ処理",
+        "text": "htmlspecialchars($name, ENT_QUOTES, \"UTF-8\");"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "乱数生成（rand）",
+        "text": "rand(1, 10);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "乱数生成（mt_rand）",
+        "text": "mt_rand(0, 100);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "四捨五入",
+        "text": "round(3.14);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "切り捨て",
+        "text": "floor(3.9);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "切り上げ",
+        "text": "ceil(3.1);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "最大値取得",
+        "text": "max(10, 20);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "最小値取得",
+        "text": "min(5, 1);"
+    },
+    {
+        "course": "php",
+        "level": "basic",
+        "title": "数値かどうか判定",
+        "text": "is_numeric($price);"
+    }
+]

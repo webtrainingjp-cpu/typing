@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- トップページ -->
+  <url>
+    <loc>https://typing.webtraining.jp/</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- タイピングアプリ -->
+  <url>
+    <loc>https://typing.webtraining.jp/typing.html</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- このサイトについて -->
+  <url>
+    <loc>https://typing.webtraining.jp/about.php</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ -->
+  <url>
+    <loc>https://typing.webtraining.jp/faq.php</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- お問い合わせ（案内ページ） -->
+  <url>
+    <loc>https://typing.webtraining.jp/contact.php</loc>
+    <lastmod>2026-01-28</lastmod>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

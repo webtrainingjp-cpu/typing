@@ -1,0 +1,308 @@
+[
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "変数型指定",
+        "text": "let count: number = 0;"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "文字列型",
+        "text": "let name: string = \"Taro\";"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "boolean型",
+        "text": "let isOpen: boolean = true;"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "配列型",
+        "text": "let items: number[] = [1, 2, 3];"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "any型",
+        "text": "let data: any;"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "関数型指定",
+        "text": "function greet(name: string): void {}"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "戻り値指定",
+        "text": "function add(a: number, b: number): number { return a + b; }"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "オプション引数",
+        "text": "function greet(name?: string) {}"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "デフォルト引数",
+        "text": "function greet(name: string = \"Guest\") {}"
+    },
+    {
+        "course": "ts",
+        "level": "basic",
+        "title": "union型",
+        "text": "let id: number | string;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "interface定義",
+        "text": "interface User { name: string; age: number; }"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "interface使用",
+        "text": "const user: User = { name: \"Taro\", age: 20 };"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "型エイリアス",
+        "text": "type ID = number | string;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "readonly",
+        "text": "readonly id: number;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "配列ジェネリクス",
+        "text": "Array<number>"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "関数型",
+        "text": "type Add = (a: number, b: number) => number;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "クラス定義",
+        "text": "class User { name: string; constructor(name: string) { this.name = name; } }"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "private",
+        "text": "private password: string;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "public",
+        "text": "public greet(): void {}"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "extends",
+        "text": "class Admin extends User {}"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "enum",
+        "text": "enum Role { Admin, User }"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "null合体",
+        "text": "const name = input ?? \"Guest\";"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "optional chaining",
+        "text": "user?.profile?.name"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "as型",
+        "text": "const input = value as string;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "typeof型",
+        "text": "type UserType = typeof user;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "keyof",
+        "text": "type Keys = keyof User;"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "Partial",
+        "text": "Partial<User>"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "Pick",
+        "text": "Pick<User, 'name'>"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "Record",
+        "text": "Record<string, number>"
+    },
+    {
+        "course": "ts",
+        "level": "intermediate",
+        "title": "unknown",
+        "text": "let value: unknown;"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "ジェネリクス",
+        "text": "function identity<T>(arg: T): T { return arg; }"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Promise型",
+        "text": "Promise<string>"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "async関数",
+        "text": "async function fetchData(): Promise<void> {}"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Awaited",
+        "text": "Awaited<Promise<string>>"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "readonly配列",
+        "text": "readonly number[]"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "never型",
+        "text": "function error(): never { throw new Error(); }"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "infer",
+        "text": "type ReturnType<T> = T extends (...args: any) => infer R ? R : any;"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Mapped Types",
+        "text": "type ReadonlyUser = { readonly [K in keyof User]: User[K]; };"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Conditional Types",
+        "text": "type IsString<T> = T extends string ? true : false;"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "React Props型",
+        "text": "type Props = { title: string; count?: number; };"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "React useState型",
+        "text": "const [count, setCount] = useState<number>(0);"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Event型",
+        "text": "function handle(e: React.MouseEvent<HTMLButtonElement>) {}"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "FormEvent",
+        "text": "function handle(e: React.FormEvent<HTMLFormElement>) {}"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Next API型",
+        "text": "export default function handler(req: NextApiRequest, res: NextApiResponse) {}"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "useRef型",
+        "text": "const inputRef = useRef<HTMLInputElement>(null);"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Readonly",
+        "text": "Readonly<User>"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Omit",
+        "text": "Omit<User, 'age'>"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "Constructor型",
+        "text": "new (name: string) => User"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "最終問題1",
+        "text": "interface Props { title: string } const Comp: React.FC<Props> = ({ title }) => <div>{title}</div>;"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "最終問題2",
+        "text": "type APIResponse<T> = { data: T; error: string | null; };"
+    },
+    {
+        "course": "ts",
+        "level": "advanced",
+        "title": "最終問題3",
+        "text": "const fetcher = async <T>(url: string): Promise<T> => { return await fetch(url).then(res => res.json()); }"
+    }
+]

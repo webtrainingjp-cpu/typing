@@ -1,0 +1,302 @@
+[
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "波カッコ",
+        "text": "{ } { } { }"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "丸カッコ",
+        "text": "( ) ( ) ( )"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "角カッコ",
+        "text": "[ ] [ ] [ ]"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "HTMLタグ",
+        "text": "<div></div>"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "スラッシュ",
+        "text": "/ / // ///"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "ダブルクォート",
+        "text": "\"text\""
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "シングルクォート",
+        "text": "'text'"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "セミコロン",
+        "text": "; ; ; ;"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "コロン",
+        "text": ": : : :"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "アンダースコア",
+        "text": "_ _ __ ___"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "ハイフン",
+        "text": "- - -- ---"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "イコール",
+        "text": "= == ==="
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "感嘆符",
+        "text": "! != !=="
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "パイプ",
+        "text": "| || |||"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "アンパサンド",
+        "text": "& && &&&"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "ドット",
+        "text": ". . .. ..."
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "カンマ",
+        "text": ", , , ,"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "バックスラッシュ",
+        "text": "\\ \\\\"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "バッククォート",
+        "text": "`code`"
+    },
+    {
+        "course": "symbols",
+        "level": "basic",
+        "title": "山カッコ連続",
+        "text": "<><><>"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "比較演算子",
+        "text": "== === != !== > < >= <="
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "論理演算子",
+        "text": "&& || !"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "三項演算子",
+        "text": "a ? b : c;"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "アロー関数",
+        "text": "() => { }"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "オブジェクト",
+        "text": "{ key: \"value\" }"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "配列",
+        "text": "[1, 2, 3]"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "テンプレート文字列",
+        "text": "`Hello ${name}`"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "JS条件文",
+        "text": "if (a && b) { }"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "for文",
+        "text": "for (let i = 0; i < 10; i++) { }"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "関数定義",
+        "text": "function test() { }"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "配列アクセス",
+        "text": "arr[0];"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "プロパティアクセス",
+        "text": "obj.name;"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "オプショナルチェーン",
+        "text": "user?.name"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "Null合体",
+        "text": "value ?? default"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "スプレッド構文",
+        "text": "{ ...obj }"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "分割代入",
+        "text": "const { a, b } = obj;"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "PHP配列",
+        "text": "$arr[\"key\"]"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "PHP連結",
+        "text": "\"Hello\" . $name"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "SQL条件",
+        "text": "WHERE id = 1;"
+    },
+    {
+        "course": "symbols",
+        "level": "intermediate",
+        "title": "SQL論理",
+        "text": "AND name != \"admin\""
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "JSXタグ",
+        "text": "<Component prop={value} />"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "JSX条件",
+        "text": "{isOpen && <Modal /> }"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "React Hook",
+        "text": "useEffect(() => { }, []);"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "TypeScript型",
+        "text": "const user: { name: string; age: number; }"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "ジェネリクス",
+        "text": "Array<string>"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "関数型",
+        "text": "(a: number): void => { }"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "Promise",
+        "text": "new Promise((res, rej) => { })"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "fetch構文",
+        "text": "fetch(url).then(res => res.json());"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "Try Catch",
+        "text": "try { } catch(e) { }"
+    },
+    {
+        "course": "symbols",
+        "level": "advanced",
+        "title": "正規表現",
+        "text": "/^[a-z0-9_]+$/i"
+    }
+]

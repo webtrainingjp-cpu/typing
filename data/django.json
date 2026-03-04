@@ -1,0 +1,302 @@
+[
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "テンプレート変数",
+        "text": "{{ user.username }}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "if文",
+        "text": "{% if user %}Hello{% endif %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "for文",
+        "text": "{% for item in list %}{{ item }}{% endfor %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "extends",
+        "text": "{% extends \"base.html\" %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "block",
+        "text": "{% block content %}{% endblock %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "include",
+        "text": "{% include \"header.html\" %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "csrf_token",
+        "text": "{% csrf_token %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "urlタグ",
+        "text": "{% url 'home' %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "staticタグ",
+        "text": "{% load static %}"
+    },
+    {
+        "course": "django",
+        "level": "basic",
+        "title": "img static",
+        "text": "<img src=\"{% static 'img/logo.png' %}\">"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "view関数",
+        "text": "def index(request): return render(request, 'index.html')"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "render",
+        "text": "return render(request, 'page.html', context)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "redirect",
+        "text": "return redirect('home')"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "HttpResponse",
+        "text": "return HttpResponse('OK')"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "POST取得",
+        "text": "request.POST.get('name')"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "GET取得",
+        "text": "request.GET.get('id')"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "form.is_valid",
+        "text": "if form.is_valid(): form.save()"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "Model.objects",
+        "text": "Post.objects.all()"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "filter",
+        "text": "User.objects.filter(is_active=True)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "get_object",
+        "text": "get_object_or_404(Post, id=id)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "URL path",
+        "text": "path('home/', views.home, name='home')"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "admin登録",
+        "text": "admin.site.register(Post)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "ForeignKey",
+        "text": "author = models.ForeignKey(User, on_delete=models.CASCADE)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "CharField",
+        "text": "title = models.CharField(max_length=200)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "TextField",
+        "text": "content = models.TextField()"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "DateTimeField",
+        "text": "created_at = models.DateTimeField(auto_now_add=True)"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "Meta class",
+        "text": "class Meta: ordering = ['-created_at']"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "save",
+        "text": "post.save()"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "delete",
+        "text": "post.delete()"
+    },
+    {
+        "course": "django",
+        "level": "intermediate",
+        "title": "ModelForm",
+        "text": "class PostForm(forms.ModelForm): pass"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "login_required",
+        "text": "@login_required"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "authenticate",
+        "text": "user = authenticate(username=u, password=p)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "login",
+        "text": "login(request, user)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "logout",
+        "text": "logout(request)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "Paginator",
+        "text": "Paginator(posts, 10)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "Page取得",
+        "text": "page_obj = paginator.get_page(page_number)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "reverse",
+        "text": "reverse('home')"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "signals",
+        "text": "@receiver(post_save, sender=User)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "settings取得",
+        "text": "settings.DEBUG"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "middleware",
+        "text": "class CustomMiddleware:"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "TemplateView",
+        "text": "class HomeView(TemplateView): template_name='home.html'"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "ListView",
+        "text": "class PostListView(ListView): model = Post"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "DetailView",
+        "text": "class PostDetailView(DetailView): model = Post"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "CreateView",
+        "text": "class PostCreateView(CreateView): form_class = PostForm"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "UpdateView",
+        "text": "class PostUpdateView(UpdateView): model = Post"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "DeleteView",
+        "text": "class PostDeleteView(DeleteView): model = Post"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "REST API",
+        "text": "serializer = PostSerializer(posts, many=True)"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "APIView",
+        "text": "class PostAPI(APIView): pass"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "JsonResponse",
+        "text": "return JsonResponse({'ok': True})"
+    },
+    {
+        "course": "django",
+        "level": "advanced",
+        "title": "最終問題",
+        "text": "return render(request, 'detail.html', {'post': post})"
+    }
+]

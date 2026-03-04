@@ -1,0 +1,260 @@
+[
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "テーマヘッダー読み込み",
+        "text": "<?php get_header(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "テーマフッター読み込み",
+        "text": "<?php get_footer(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "サイドバー読み込み",
+        "text": "<?php get_sidebar(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "テンプレートパーツ読み込み（template-parts/content.php）",
+        "text": "<?php get_template_part('template-parts/content'); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿があるか判定",
+        "text": "<?php if (have_posts()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "ループ開始",
+        "text": "<?php while (have_posts()) : the_post(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "ループ終了",
+        "text": "<?php endwhile; ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "if の終了",
+        "text": "<?php endif; ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿タイトル表示",
+        "text": "<?php the_title(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿本文表示",
+        "text": "<?php the_content(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "抜粋表示",
+        "text": "<?php the_excerpt(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿日表示（the_time）",
+        "text": "<?php the_time('Y-m-d'); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "パーマリンク出力",
+        "text": "<?php the_permalink(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿ID出力",
+        "text": "<?php the_ID(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿クラス出力",
+        "text": "<?php post_class(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "アイキャッチ表示",
+        "text": "<?php the_post_thumbnail(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "アイキャッチURL出力",
+        "text": "<?php the_post_thumbnail_url(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "カテゴリ表示（the_category）",
+        "text": "<?php the_category(', '); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "タグ表示（the_tags）",
+        "text": "<?php the_tags(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "検索フォーム表示",
+        "text": "<?php get_search_form(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "条件分岐 トップページ",
+        "text": "<?php if (is_front_page()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "条件分岐 固定ページ",
+        "text": "<?php if (is_page()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "条件分岐 投稿ページ",
+        "text": "<?php if (is_single()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "条件分岐 カテゴリ",
+        "text": "<?php if (is_category()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "条件分岐 検索結果",
+        "text": "<?php if (is_search()) : ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "home_url 出力",
+        "text": "<?php echo home_url(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "URLエスケープ（esc_url）",
+        "text": "<?php echo esc_url(home_url('/')); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "テーマURL取得",
+        "text": "<?php echo get_template_directory_uri(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "子テーマURL取得",
+        "text": "<?php echo get_stylesheet_directory_uri(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "CSS読み込み（enqueue）",
+        "text": "<?php wp_enqueue_style('style', get_stylesheet_uri()); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "JS読み込み（enqueue）",
+        "text": "<?php wp_enqueue_script('script', get_template_directory_uri().'/js/main.js'); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "functions.php フック（enqueue）",
+        "text": "add_action('wp_enqueue_scripts', 'theme_scripts');"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "テーマサポート追加（アイキャッチ）",
+        "text": "add_theme_support('post-thumbnails');"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "カスタムメニュー有効化",
+        "text": "register_nav_menus(['main-menu' => 'Main Menu']);"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "メニュー表示",
+        "text": "<?php wp_nav_menu(['theme_location' => 'main-menu']); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "ページネーション（メインクエリ）",
+        "text": "<?php the_posts_pagination(); ?>"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "404テンプレート",
+        "text": "404.php"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "検索結果テンプレート",
+        "text": "search.php"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "アーカイブテンプレート",
+        "text": "archive.php"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "固定ページテンプレート",
+        "text": "page.php"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "投稿テンプレート",
+        "text": "single.php"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "メインテンプレート",
+        "text": "index.php"
+    },
+    {
+        "course": "wordpress",
+        "level": "basic",
+        "title": "テンプレート優先順位（例）",
+        "text": "front-page.php"
+    }
+]

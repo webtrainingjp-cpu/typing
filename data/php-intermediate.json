@@ -1,0 +1,200 @@
+[
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "関数定義",
+        "text": "function hello() { }"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "引数付き関数",
+        "text": "function hello($name) { }"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "引数のデフォルト値",
+        "text": "function greet($name = \"Guest\") { }"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "戻り値",
+        "text": "return $result;"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "continue文",
+        "text": "continue;"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "break文",
+        "text": "break;"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "require",
+        "text": "require \"header.php\";"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "require_once",
+        "text": "require_once \"config.php\";"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "include",
+        "text": "include \"footer.php\";"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "セッション開始",
+        "text": "session_start();"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "セッション代入",
+        "text": "$_SESSION[\"user_id\"] = $id;"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "セッション取得",
+        "text": "$_SESSION[\"user_id\"];"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "ログイン判定",
+        "text": "if (empty($_SESSION[\"user_id\"])) { }"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "ログアウト",
+        "text": "session_destroy();"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "セッション変数削除",
+        "text": "unset($_SESSION[\"user_id\"]);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "セッションID再生成",
+        "text": "session_regenerate_id(true);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "PDO接続",
+        "text": "new PDO($dsn, $user, $pass);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "prepare文",
+        "text": "$stmt = $pdo->prepare($sql);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "execute実行",
+        "text": "$stmt->execute();"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "fetch取得",
+        "text": "$stmt->fetch(PDO::FETCH_ASSOC);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "bindValue",
+        "text": "$stmt->bindValue(\":id\", $id, PDO::PARAM_INT);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "fetchAll取得",
+        "text": "$stmt->fetchAll(PDO::FETCH_ASSOC);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "影響行数取得",
+        "text": "$stmt->rowCount();"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "トランザクション開始",
+        "text": "$pdo->beginTransaction();"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "null合体演算子",
+        "text": "$name = $_POST[\"name\"] ?? \"\";"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "三項演算子",
+        "text": "$flag ? \"ON\" : \"OFF\";"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "早期return",
+        "text": "if (!$user) return;"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "ファイル存在確認",
+        "text": "file_exists(\"data.txt\");"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "ファイル読み込み",
+        "text": "file_get_contents(\"data.txt\");"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "ファイル書き込み",
+        "text": "file_put_contents(\"data.txt\", $text);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "try catch構文",
+        "text": "try { } catch (Exception $e) { }"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "パスワード暗号化",
+        "text": "password_hash($password, PASSWORD_DEFAULT);"
+    },
+    {
+        "course": "php",
+        "level": "intermediate",
+        "title": "パスワード照合",
+        "text": "password_verify($password, $hash);"
+    }
+]

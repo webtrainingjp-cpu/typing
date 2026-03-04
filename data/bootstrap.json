@@ -1,0 +1,272 @@
+[
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "Bootstrap 読み込み（CDN）",
+        "text": "<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "コンテナ",
+        "text": "<div class=\"container\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "横幅いっぱいのコンテナ",
+        "text": "<div class=\"container-fluid\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "グリッド行",
+        "text": "<div class=\"row\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "グリッド 6カラム",
+        "text": "<div class=\"col-6\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "レスポンシブカラム(md)",
+        "text": "<div class=\"col-md-6\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "3カラム構成",
+        "text": "<div class=\"col-md-4\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "中央寄せ",
+        "text": "<div class=\"text-center\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "文字色（primary）",
+        "text": "<p class=\"text-primary\">Text</p>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "背景色（dark）",
+        "text": "<div class=\"bg-dark text-light\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "余白 上下",
+        "text": "<div class=\"my-3\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "内側余白",
+        "text": "<div class=\"p-3\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "Flexbox",
+        "text": "<div class=\"d-flex\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "Flex 横並び 両端揃え",
+        "text": "<div class=\"d-flex justify-content-between\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "Flex 縦中央",
+        "text": "<div class=\"d-flex align-items-center\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ボタン（primary）",
+        "text": "<button class=\"btn btn-primary\">Button</button>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "アウトラインボタン",
+        "text": "<button class=\"btn btn-outline-light\">Button</button>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ボタンサイズ（大）",
+        "text": "<button class=\"btn btn-lg btn-primary\">Button</button>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "カード",
+        "text": "<div class=\"card\"><div class=\"card-body\"></div></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "カードタイトル",
+        "text": "<h5 class=\"card-title\">Title</h5>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "リストグループ",
+        "text": "<ul class=\"list-group\"></ul>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "フォーム入力",
+        "text": "<input type=\"text\" class=\"form-control\">"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "チェックボックス",
+        "text": "<input class=\"form-check-input\" type=\"checkbox\">"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "セレクトボックス",
+        "text": "<select class=\"form-select\"></select>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ナビバー",
+        "text": "<nav class=\"navbar navbar-expand-lg navbar-dark bg-dark\"></nav>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ナビバー ブランド",
+        "text": "<a class=\"navbar-brand\" href=\"#\">Brand</a>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ナビメニュー",
+        "text": "<ul class=\"navbar-nav\"></ul>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ハンバーガーボタン",
+        "text": "<button class=\"navbar-toggler\" type=\"button\"></button>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "モーダル起動ボタン",
+        "text": "<button data-bs-toggle=\"modal\" data-bs-target=\"#modal\">Open</button>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "モーダル本体",
+        "text": "<div class=\"modal fade\" id=\"modal\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "アラート",
+        "text": "<div class=\"alert alert-warning\">Alert</div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "バッジ",
+        "text": "<span class=\"badge bg-secondary\">New</span>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "プログレスバー",
+        "text": "<div class=\"progress\"><div class=\"progress-bar\" style=\"width:50%\"></div></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "テーブル",
+        "text": "<table class=\"table\"></table>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "テーブル 罫線",
+        "text": "<table class=\"table table-bordered\"></table>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "レスポンシブテーブル",
+        "text": "<div class=\"table-responsive\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "画像レスポンシブ",
+        "text": "<img src=\"img.jpg\" class=\"img-fluid\">"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "非表示（md以下）",
+        "text": "<div class=\"d-none d-md-block\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "表示切り替え",
+        "text": "<div class=\"d-md-none\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "Bootstrap JS 読み込み",
+        "text": "<script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js\"></script>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "トースト",
+        "text": "<div class=\"toast\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "アコーディオン",
+        "text": "<div class=\"accordion\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ドロップダウン",
+        "text": "<div class=\"dropdown\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "スピナー",
+        "text": "<div class=\"spinner-border\"></div>"
+    },
+    {
+        "course": "bootstrap",
+        "level": "basic",
+        "title": "ユーティリティ shadow",
+        "text": "<div class=\"shadow\"></div>"
+    }
+]

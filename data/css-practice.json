@@ -1,0 +1,182 @@
+[
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "グリッドレイアウト開始",
+        "text": "display:grid;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "3カラムレイアウト",
+        "text": "grid-template-columns:repeat(3,1fr);"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "グリッド間隔",
+        "text": "gap:24px;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "中央寄せ（Grid）",
+        "text": "place-items:center;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "画面いっぱいの高さ",
+        "text": "min-height:100vh;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "カードUIの影",
+        "text": "box-shadow:0 10px 30px rgba(0,0,0,0.15);"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "角丸デザイン",
+        "text": "border-radius:12px;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "はみ出し防止",
+        "text": "overflow:hidden;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "画像の比率調整",
+        "text": "object-fit:cover;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "ホバー用トランジション",
+        "text": "transition:all 0.3s ease;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "ホバー時に浮かせる",
+        "text": ":hover{transform:translateY(-6px);}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "透明度の変化",
+        "text": ":hover{opacity:0.9;}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "疑似要素で装飾（before）",
+        "text": "::before{content:\"\"; position:absolute;}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "フェードインアニメーション定義",
+        "text": "@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "アニメーション適用",
+        "text": "animation:fadeIn 0.6s ease;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "レスポンシブ対応開始",
+        "text": "@media (max-width:768px){}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "スマホで1カラム表示",
+        "text": "grid-template-columns:1fr;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "レスポンシブ余白調整",
+        "text": "padding:16px;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "フォントサイズの自動調整",
+        "text": "font-size:clamp(14px,2vw,18px);"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "背景画像まとめ指定",
+        "text": "background:url(\"bg.jpg\") center / cover no-repeat;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "フレックス中央配置",
+        "text": "display:flex; justify-content:center; align-items:center;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "縦並びレイアウト",
+        "text": "flex-direction:column;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "最小高さ指定",
+        "text": "min-height:300px;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "最大幅と中央寄せ",
+        "text": "max-width:1200px; margin:0 auto;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "ボタンUIの装飾",
+        "text": "padding:12px 24px; border-radius:9999px;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "ホバー時に色変更",
+        "text": ":hover{background-color:#333; color:#fff;}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "ホバー時の影強調",
+        "text": ":hover{box-shadow:0 15px 40px rgba(0,0,0,0.25);}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "絶対配置の基準指定",
+        "text": "position:relative;"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "装飾用疑似要素（after）",
+        "text": "::after{content:\"\"; position:absolute; inset:0;}"
+    },
+    {
+        "course": "css",
+        "level": "practice",
+        "title": "フェード＋移動アニメーション",
+        "text": "@keyframes fadeUp{from{opacity:0; transform:translateY(20px);}to{opacity:1; transform:none;}}"
+    }
+]
