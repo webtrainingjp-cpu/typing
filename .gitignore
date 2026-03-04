@@ -1,0 +1,12 @@
+# Mac
+.DS_Store
+
+# video
+*.mov
+*.mp4
+
+# screenflow
+*.screenflow
+
+# log
+*.log
