@@ -184,8 +184,12 @@
           </div>
 
           <div class="text-center">
-            <a href="typing.html" class="btn btn-outline-light">
-              タイピングに戻る
+            <a
+              id="backTypingBtn"
+              href="typing.html"
+              class="btn btn-outline-light"
+            >
+              同じコースでもう一度
             </a>
           </div>
         </main>
@@ -259,6 +263,14 @@
           if (courseTitleEl) {
             courseTitleEl.textContent =
               courseKey.replace(/_/g, " ").toUpperCase() + " の記録";
+          }
+          // ==============================
+          // タイピングに戻る（元コースへ）
+          // ==============================
+          const backBtn = document.getElementById("backTypingBtn");
+
+          if (backBtn && courseKey) {
+            backBtn.href = `typing.html?course=${courseKey}`;
           }
 
           // ==============================
