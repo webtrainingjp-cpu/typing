@@ -368,3 +368,9 @@ footer {
     padding: 10px;
     border-radius: 10px;
 }
+
+
+#bestScore{
+color:#ffc107;
+font-weight:bold;
+}

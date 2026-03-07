@@ -34,6 +34,7 @@ const timeEl = document.getElementById("time");
 const timeSelectEl = document.getElementById("timeSelect");
 
 const scoreEl = document.getElementById("score");
+const bestScoreEl = document.getElementById("bestScore");
 const progressArea = document.getElementById("progressArea");
 const progressBar = document.getElementById("progressBar");
 const capsWarningEl = document.getElementById("capsWarning");
@@ -181,6 +182,11 @@ function setCourse(courseKey, jsonPath) {
 // ==============================
 function loadQuestions(jsonPath) {
   resetGame();
+
+  // ベスト表示
+  const best = getBestScore(currentCourseKey, timeLimit);
+  if (bestScoreEl) bestScoreEl.textContent = best;
+
   if (questionEl) questionEl.textContent = "問題を読み込んでいます…";
 
   fetch(jsonPath)

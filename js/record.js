@@ -79,7 +79,7 @@
       list.sort((a, b) => b.date - a.date);
 
       const sliced = list.slice(0, 20);
-      localStorage.setItem(storageKey(key), JSON.stringify(sliced));
+      localStorage.setItem(storageKey(key, time), JSON.stringify(sliced));
       return sliced;
     }
 

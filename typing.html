@@ -206,35 +206,11 @@
               CSS・Python・Djangoといった
               モダンな開発技術まで、学習でよく使う構文や記述を中心に構成されています。
             </p>
-            <p>
-              時間は５分。出題は学習向けとシャッフルがあります。最初から始めたい時は、リセットボタンをクリックしてください。
-            </p>
           </section>
           <!-- ステータス -->
-          <div id="statusArea" class="d-flex justify-content-between mb-2">
-            <div class="d-flex gap-5 align-items-center">
-              <div>残り <span id="time">300</span> 秒</div>
-              <!-- 例：#statusArea の右側 .d-flex gap-3 の中に入れる -->
-              <label class="d-flex align-items-center gap-2 small m-0">
-                <span class="text-white">制限時間の変更</span>
-                <select
-                  id="timeSelect"
-                  class="form-select form-select-sm w-auto"
-                >
-                  <option value="60">60秒(1分)</option>
-                  <option value="120">120秒(2分)</option>
-                  <option value="180">180秒(3分)</option>
-                  <option value="300" selected>300秒(5分)</option>
-                </select>
-              </label>
-
-              <div>進捗 <span id="qProgress">0/0</span></div>
-              <div>現在のスコア <span id="score">0</span></div>
-            </div>
-            <div class="d-flex gap-3">
-              <button id="resetBtn" class="btn btn-sm btn-outline-warning">
-                リセット
-              </button>
+          <div id="statusArea" class="mb-2">
+            <!-- 上段：情報 -->
+            <div class="d-flex gap-3 mb-4">
               <div class="btn-group" role="group" aria-label="出題モード">
                 <button
                   id="orderBtn"
@@ -244,6 +220,7 @@
                 >
                   順番(学習向)
                 </button>
+
                 <button
                   id="shuffleBtn"
                   type="button"
@@ -253,6 +230,29 @@
                   シャッフル（実力測定）
                 </button>
               </div>
+              <label class="d-flex align-items-center gap-2 small m-0">
+                <span class="text-white">制限時間の変更</span>
+                <select
+                  id="timeSelect"
+                  class="form-select form-select-sm w-auto"
+                >
+                  <option value="60">60秒</option>
+                  <option value="120">120秒</option>
+                  <option value="180">180秒</option>
+                  <option value="300" selected>300秒</option>
+                </select>
+              </label>
+
+              <button id="resetBtn" class="btn btn-sm btn-outline-warning">
+                リセット
+              </button>
+            </div>
+            <!-- 下段：操作 -->
+            <div class="d-flex flex-wrap gap-4 align-items-center mb-2">
+              <div>残り時間 <span id="time">300</span> 秒</div>
+              <div>現在のスコア <span id="score">0</span>点</div>
+              <div>ベストスコア <span id="bestScore">0</span>点</div>
+              <div>進捗 <span id="qProgress">0/0</span></div>
             </div>
           </div>
           <!-- 出題モード切替 -->
