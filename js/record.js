@@ -51,12 +51,12 @@
     // ==============================
     // localStorage
     // ==============================
-    function storageKey(key) {
-      return "typing_record_" + key;
+    function storageKey(key, time) {
+      return "typing_record_" + key + "_" + time;
     }
     function getRecords(key) {
       try {
-        const raw = localStorage.getItem(storageKey(key));
+        const raw = localStorage.getItem(storageKey(key, safeTime));
         if (!raw) return [];
         const parsed = JSON.parse(raw);
         return Array.isArray(parsed) ? parsed : [];
@@ -66,7 +66,7 @@
     }
 
     function saveRecord(key, time, data) {
-      const list = getRecords(key, time);
+      const list = getRecords(key);
 
       list.push({
         score: data.score,
