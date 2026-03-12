@@ -51,12 +51,12 @@
     // ==============================
     // localStorage
     // ==============================
-    function storageKey(key, time) {
-      return "typing_record_" + key + "_" + time;
+    function storageKey(key) {
+      return "typing_record_" + key;
     }
     function getRecords(key) {
       try {
-        const raw = localStorage.getItem(storageKey(key, safeTime));
+        const raw = localStorage.getItem(storageKey(key));
         if (!raw) return [];
         const parsed = JSON.parse(raw);
         return Array.isArray(parsed) ? parsed : [];
@@ -79,7 +79,7 @@
       list.sort((a, b) => b.date - a.date);
 
       const sliced = list.slice(0, 20);
-      localStorage.setItem(storageKey(key, time), JSON.stringify(sliced));
+      localStorage.setItem(storageKey(key), JSON.stringify(sliced));
       return sliced;
     }
 
