@@ -228,6 +228,64 @@
 
     const basicCourses = document.getElementById("basic-courses");
     const modernCourses = document.getElementById("modern-courses");
+    const navCourseLinks = document.querySelectorAll(
+      "#basic-courses a, #modern-courses a",
+    );
+
+    function getNavCourseKey(link) {
+      try {
+        const href = link.getAttribute("href") || "";
+        const url = new URL(href, location.href);
+        return url.searchParams.get("course");
+      } catch {
+        return null;
+      }
+    }
+
+    function resolveActiveCourseKey(key) {
+      const fallbackMap = {
+        html: "html",
+        html_basic: "html",
+        css: "css",
+        css_basic: "css",
+        js: "js",
+        js_basic: "js",
+        javascript: "js",
+        javascript_basic: "js",
+        php: "php",
+        php_basic: "php",
+        wordpress: "wordpress",
+        wordpress_basic: "wordpress",
+        mysql: "mysql",
+        mysql_basic: "mysql",
+      };
+
+      return fallbackMap[key] || key;
+    }
+
+    function applyActiveNavLink(key) {
+      if (!navCourseLinks.length) return;
+
+      navCourseLinks.forEach((link) => {
+        link.classList.add("course-btn");
+        link.classList.remove("active");
+      });
+
+      // まず完全一致を優先
+      let activeLink = [...navCourseLinks].find(
+        (link) => getNavCourseKey(link) === key,
+      );
+
+      // 完全一致が無い場合だけ、basic系の単一キーにフォールバック
+      if (!activeLink) {
+        const fallbackKey = resolveActiveCourseKey(key);
+        activeLink = [...navCourseLinks].find(
+          (link) => getNavCourseKey(link) === fallbackKey,
+        );
+      }
+
+      if (activeLink) activeLink.classList.add("active");
+    }
 
     if (tabBasic && tabModern) {
       tabBasic.addEventListener("click", function () {
@@ -269,6 +327,8 @@
       tabModern.classList.add("active");
       tabBasic.classList.remove("active");
     }
+
+    applyActiveNavLink(courseKey);
 
     // ==============================
     // リセット
