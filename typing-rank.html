@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="ja" data-bs-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="ランキングチャレンジ専用タイピング画面。60秒・固定問題で集中してスコアを競います。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+    <title>ランキングチャレンジ｜WebTraining Typing</title>
+
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="text-light rank-screen-body">
+    <div class="rank-shell">
+      <header class="rank-header">
+        <p class="rank-header__eyebrow">Ranking Mode</p>
+        <h1 class="rank-header__title">ランキングチャレンジ</h1>
+        <p id="currentCourse" class="rank-header__course">
+          コースを読み込んでいます…
+        </p>
+        <p class="rank-header__lead">
+          固定問題・60秒勝負。開始前に3秒カウントダウンが入ります。
+        </p>
+      </header>
+
+      <main class="rank-main">
+        <section class="rank-panel">
+          <div class="rank-stats">
+            <div class="rank-stat">
+              <span class="rank-stat__label">残り時間</span>
+              <span class="rank-stat__value"><span id="time">60</span> 秒</span>
+            </div>
+            <div class="rank-stat">
+              <span class="rank-stat__label">現在のスコア</span>
+              <span class="rank-stat__value"><span id="score">0</span> 点</span>
+            </div>
+            <div class="rank-stat">
+              <span class="rank-stat__label">ベストスコア</span>
+              <span class="rank-stat__value"
+                ><span id="bestScore">0</span> 点</span
+              >
+            </div>
+            <div class="rank-stat">
+              <span class="rank-stat__label">進捗</span>
+              <span class="rank-stat__value"
+                ><span id="qProgress">0/0</span></span
+              >
+            </div>
+          </div>
+
+          <div class="card border-light wt-glass rank-typing-card">
+            <div class="card-body text-center typing-area wt-glass-inner">
+              <div id="questionTitle" class="rank-question-title"></div>
+              <div
+                id="question"
+                class="rank-question roboto-mono typing-area-input"
+              >
+                Enterキーで開始してください
+              </div>
+              <input
+                type="text"
+                id="typingInput"
+                autocomplete="off"
+                autocapitalize="off"
+                spellcheck="false"
+                inputmode="text"
+                enterkeyhint="done"
+                style="
+                  position: absolute;
+                  opacity: 0;
+                  pointer-events: none;
+                  height: 0;
+                "
+              />
+            </div>
+          </div>
+
+          <div
+            id="progressArea"
+            class="progress rank-progress"
+            style="height: 10px; visibility: hidden"
+          >
+            <div
+              id="progressBar"
+              class="progress-bar bg-primary"
+              style="width: 100%"
+            ></div>
+          </div>
+
+          <div class="rank-actions">
+            <a href="index.php" class="btn btn-outline-light">ホームに戻る</a>
+            <button id="resetBtn" class="btn btn-outline-warning">
+              リセット
+            </button>
+          </div>
+        </section>
+
+        <section class="rank-mini-board">
+          <div class="rank-mini-board__head">
+            <h2 class="rank-mini-board__title">現在のランキング TOP5</h2>
+            <p class="rank-mini-board__text">
+              同一チャレンジの最新上位スコアです
+            </p>
+          </div>
+          <div id="rankTopList" class="rank-mini-board__body">
+            ランキングを読み込んでいます…
+          </div>
+        </section>
+      </main>
+
+      <div id="capsWarning" class="caps-warning d-none">
+        CapsLock が ON になっています<br />
+        英数字入力にならない場合は CapsLock を解除してください
+      </div>
+      <div id="imeWarning" class="text-warning small d-none rank-ime-warning">
+        ※ 日本語入力がONになっています（英数入力に切り替えてください）
+      </div>
+    </div>
+
+    <footer class="text-center py-4 border-top border-secondary">
+      <p>
+        <a href="https://webtraining.jp/" target="_blank">
+          <img src="images/logo_white.svg" alt="Webtraining.jp" width="300" />
+        </a>
+      </p>
+      <nav class="mb-3 d-flex justify-content-center gap-3 flex-wrap">
+        <a href="index.php" class="btn btn-outline-info btn-sm">ホーム</a>
+        <a href="ranking.html" class="btn btn-outline-info btn-sm"
+          >ランキングを見る</a
+        >
+        <a href="typing.html" class="btn btn-outline-info btn-sm">練習する</a>
+
+        <a href="record.html" class="btn btn-outline-info btn-sm">スコア履歴</a>
+        <a href="about.php" class="btn btn-outline-info btn-sm"
+          >このサイトについて</a
+        >
+        <a href="faq.php" class="btn btn-outline-info btn-sm">FAQ</a>
+        <a href="contact.php" class="btn btn-outline-info btn-sm"
+          >お問い合わせ</a
+        >
+      </nav>
+
+      <p class="m-0">
+        <small>© WebTraining.jp 2026</small>
+      </p>
+    </footer>
+    <script src="js/course-config.js?v=20260226"></script>
+    <script src="js/typing.js?v=20260317"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const typingInput = document.getElementById("typingInput");
+        const typingArea = document.querySelector(".typing-area");
+        const questionEl = document.getElementById("question");
+        const currentCourseEl = document.getElementById("currentCourse");
+        const rankTopListEl = document.getElementById("rankTopList");
+        const params = new URLSearchParams(window.location.search);
+        const courseParam = params.get("course");
+        const currentPlayerName = localStorage.getItem("wt_player_name") || "";
+
+        if (!courseParam) {
+          location.href = "index.php";
+          return;
+        }
+
+        if (typingArea && typingInput) {
+          typingArea.addEventListener("click", () => {
+            typingInput.focus();
+          });
+        }
+
+        if (
+          currentCourseEl &&
+          currentCourseEl.textContent.includes("読み込んでいます")
+        ) {
+          currentCourseEl.textContent = courseParam
+            .replace(/_/g, " ")
+            .toUpperCase();
+        }
+
+        async function fetchTopRanking() {
+          if (!rankTopListEl) return;
+
+          const rankingCourse = courseParam.replace(/_rank$/, "");
+          const url = new URL("api/get-ranking.php", location.href);
+          url.searchParams.set("course", rankingCourse);
+
+          try {
+            const response = await fetch(url.toString());
+            if (!response.ok) {
+              throw new Error(`get-ranking failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            if (!Array.isArray(data)) {
+              throw new Error(data.error || "ランキング取得に失敗しました");
+            }
+
+            const top5 = data.slice(0, 5);
+
+            if (!top5.length) {
+              rankTopListEl.innerHTML =
+                '<p class="rank-mini-board__empty">まだランキングはありません。</p>';
+              return;
+            }
+
+            rankTopListEl.innerHTML = `
+              <div class="rank-mini-table">
+                <div class="rank-mini-table__head">
+                  <span>順位</span>
+                  <span>名前</span>
+                  <span>スコア</span>
+                </div>
+                ${top5
+                  .map((item, index) => {
+                    const isMe =
+                      currentPlayerName &&
+                      String(item.name || "") === String(currentPlayerName);
+                    return `
+                      <div class="rank-mini-table__row ${isMe ? "is-me" : ""}">
+                        <span>${index + 1}</span>
+                        <span>${escapeHtml(String(item.name || "-"))}</span>
+                        <span>${Number(item.score) || 0}</span>
+                      </div>
+                    `;
+                  })
+                  .join("")}
+              </div>
+            `;
+          } catch (error) {
+            rankTopListEl.innerHTML = `<p class="rank-mini-board__empty">${escapeHtml(
+              error.message,
+            )}</p>`;
+          }
+        }
+
+        function escapeHtml(str) {
+          return String(str)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+        }
+
+        fetchTopRanking();
+
+        if (typeof window.startGame === "function") {
+          const originalStartGame = window.startGame;
+          let isCountdownRunning = false;
+
+          window.startGame = function () {
+            if (isCountdownRunning) return;
+
+            const initialText = questionEl ? questionEl.textContent : "";
+            if (
+              initialText.includes("読み込めませんでした") ||
+              initialText.includes("再挑戦できます")
+            ) {
+              originalStartGame();
+              return;
+            }
+
+            isCountdownRunning = true;
+            let count = 3;
+
+            const tick = () => {
+              if (questionEl) {
+                questionEl.innerHTML = `<span class="rank-countdown">${count}</span>`;
+              }
+
+              if (count === 1) {
+                isCountdownRunning = false;
+                setTimeout(() => {
+                  originalStartGame();
+                }, 1000);
+                return;
+              }
+
+              count -= 1;
+              setTimeout(tick, 1000);
+            };
+
+            tick();
+          };
+        }
+      });
+    </script>
+  </body>
+</html>

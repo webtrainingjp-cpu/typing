@@ -1,0 +1,56 @@
+[
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "定数宣言",
+    "text": "const button = document.querySelector(\".button\");"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "クラス追加",
+    "text": "element.classList.add(\"active\");"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "クラス切り替え",
+    "text": "menu.classList.toggle(\"open\");"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "イベント登録",
+    "text": "button.addEventListener(\"click\", () => { console.log(\"clicked\"); });"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "条件分岐",
+    "text": "if (items.length === 0) { return; }"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "配列処理",
+    "text": "const titles = posts.map((post) => post.title);"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "繰り返し処理",
+    "text": "items.forEach((item) => { item.classList.add(\"show\"); });"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "非同期取得",
+    "text": "const response = await fetch(\"/api/posts\");"
+  },
+  {
+    "course": "js_rank",
+    "level": "rank",
+    "title": "条件表示",
+    "text": "if (window.scrollY > 100) { button.classList.add(\"visible\"); }"
+  }
+]

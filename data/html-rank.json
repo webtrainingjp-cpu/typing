@@ -1,0 +1,50 @@
+[
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "viewport設定",
+    "text": "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "基本構造",
+    "text": "<!DOCTYPE html><html lang=\"ja\"><head></head><body></body></html>"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "リンク付きナビ",
+    "text": "<nav><ul><li><a href=\"#\">Home</a></li></ul></nav>"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "画像と説明",
+    "text": "<figure><img src=\"sample.jpg\" alt=\"sample\"><figcaption>caption</figcaption></figure>"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "フォーム入力",
+    "text": "<input type=\"email\" name=\"email\" placeholder=\"name@example.com\">"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "セクション構造",
+    "text": "<section><h2>Title</h2><p>Practice makes perfect.</p></section>"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "送信ボタン",
+    "text": "<button type=\"submit\">送信</button>"
+  },
+  {
+    "course": "html_rank",
+    "level": "rank",
+    "title": "コンテナ構造",
+    "text": "<div class=\"container\"><p>Content</p></div>"
+  }
+]

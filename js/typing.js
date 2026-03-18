@@ -16,6 +16,9 @@
 // const TIME_LIMIT = 300; // 秒
 const DEFAULT_TIME_LIMIT = 300; // 秒（デフォルト）
 const TIME_STORAGE_KEY = "wt_typing_time_limit"; // localStorageに保存
+const RANKING_TIME_LIMIT = 60; // ランキング専用は60秒固定
+const RANKING_COOLDOWN_MS = 60 * 1000; // 再挑戦まで60秒
+const PLAYER_NAME_STORAGE_KEY = "wt_player_name";
 
 const MODE_STORAGE_KEY = "wt_typing_question_mode"; // "sequence" | "shuffle"
 const ENABLE_SYMBOL_ONLY = false; // trueにすると「記号だけ」集計
@@ -72,6 +75,7 @@ let canStart = false;
 
 let currentCourseKey = null;
 let currentJsonPath = null;
+let isRankingMode = false;
 
 // 出題モード
 let questionOrderMode = "sequence"; // "sequence" or "shuffle"
@@ -79,12 +83,211 @@ let questionOrderMode = "sequence"; // "sequence" or "shuffle"
 // 進捗
 let totalQuestions = 0;
 let currentQuestionNumber = 0;
+let initialTotalQuestions = 0;
 
 // ==============================
 // 誤打分析（typing画面だけで表示）
 // ==============================
 let missCharCount = {}; // 期待文字ベース { ";": 12 }
 let missPairCount = {}; // 期待→入力 { ";->:": 7 }
+
+function isRankingCourse(courseKey) {
+  return typeof courseKey === "string" && courseKey.endsWith("_rank");
+}
+
+function getRankingCourseConfig(courseKey) {
+  if (!isRankingCourse(courseKey)) return null;
+
+  const baseCourseKey = courseKey.slice(0, -5);
+  const baseLabel =
+    baseCourseKey
+      .split("_")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ") || "Ranking";
+
+  return {
+    label: `${baseLabel} / Ranking`,
+    json: `data/${baseCourseKey.replaceAll("_", "-")}-rank.json`,
+  };
+}
+
+function getCourseConfig(courseKey) {
+  if (
+    typeof COURSE_MAP !== "undefined" &&
+    COURSE_MAP &&
+    Object.prototype.hasOwnProperty.call(COURSE_MAP, courseKey)
+  ) {
+    return COURSE_MAP[courseKey];
+  }
+
+  return getRankingCourseConfig(courseKey);
+}
+
+function getRankingCooldownStorageKey(courseKey) {
+  return `wt_ranking_cooldown_${courseKey}`;
+}
+
+function setRankingCooldown(courseKey) {
+  if (!isRankingCourse(courseKey)) return;
+
+  try {
+    localStorage.setItem(
+      getRankingCooldownStorageKey(courseKey),
+      String(Date.now() + RANKING_COOLDOWN_MS),
+    );
+  } catch {}
+}
+
+function getRankingCooldownRemainingMs(courseKey) {
+  if (!isRankingCourse(courseKey)) return 0;
+
+  try {
+    const cooldownUntil = Number(
+      localStorage.getItem(getRankingCooldownStorageKey(courseKey)),
+    );
+    if (!Number.isFinite(cooldownUntil) || cooldownUntil <= 0) return 0;
+
+    return Math.max(0, cooldownUntil - Date.now());
+  } catch {
+    return 0;
+  }
+}
+
+function getRankingCooldownMessage(courseKey) {
+  const remainingMs = getRankingCooldownRemainingMs(courseKey);
+  if (remainingMs <= 0) {
+    return "Enterキーで開始してください(日本語入力はOFF)";
+  }
+
+  const remainingSec = Math.ceil(remainingMs / 1000);
+  return `ランキングモードは${remainingSec}秒後に再挑戦できます`;
+}
+
+function applyCourseModeSettings(courseKey) {
+  isRankingMode = isRankingCourse(courseKey);
+
+  if (isRankingMode) {
+    timeLimit = RANKING_TIME_LIMIT;
+    questionOrderMode = "sequence";
+  } else {
+    loadModeFromStorage();
+    loadTimeFromStorage();
+  }
+
+  if (timeSelectEl) {
+    timeSelectEl.disabled = isRankingMode;
+    timeSelectEl.value = String(timeLimit);
+  }
+
+  if (orderBtn) orderBtn.disabled = isRankingMode;
+  if (shuffleBtn) shuffleBtn.disabled = isRankingMode;
+
+  applyModeUI();
+  applyTimeUI();
+}
+
+function getStoredPlayerName() {
+  try {
+    const saved = localStorage.getItem(PLAYER_NAME_STORAGE_KEY);
+    return saved ? saved.trim() : "";
+  } catch {
+    return "";
+  }
+}
+
+function savePlayerName(name) {
+  try {
+    localStorage.setItem(PLAYER_NAME_STORAGE_KEY, name);
+  } catch {}
+}
+
+function ensurePlayerName() {
+  const savedName = getStoredPlayerName();
+  if (savedName) return savedName;
+
+  const input = window.prompt("ランキングに表示する名前を入力してください", "");
+  const playerName = String(input || "").trim();
+
+  if (!playerName) return "";
+
+  savePlayerName(playerName);
+  return playerName;
+}
+
+// ==============================
+// スコア送信
+// ==============================
+async function postFinalScore({
+  score,
+  course,
+  time,
+  name,
+  progressCurrent,
+  progressTotal,
+}) {
+  const saveScoreUrl = new URL("./api/save-score.php", location.href);
+  const response = await fetch(saveScoreUrl.toString(), {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      score,
+      course,
+      time,
+      name,
+      progress_current: progressCurrent,
+      progress_total: progressTotal,
+    }),
+  });
+
+  console.log("save-score response:", response);
+
+  const result = await response.json();
+  console.log("save-score result:", result);
+
+  if (!response.ok) {
+    throw new Error(
+      result?.error || `save-score failed: ${response.status}`,
+    );
+  }
+
+  return result;
+}
+
+async function fetchCourseRanking(courseKey) {
+  const url = new URL("api/get-ranking.php", location.href);
+  url.searchParams.set("course", courseKey);
+
+  const response = await fetch(url.toString());
+  if (!response.ok) {
+    throw new Error(`get-ranking failed: ${response.status}`);
+  }
+
+  const data = await response.json();
+  if (!Array.isArray(data)) {
+    throw new Error(data.error || "ランキングデータの取得に失敗しました");
+  }
+
+  return data;
+}
+
+function getRankingDisplayCourseKey(courseKey) {
+  if (!isRankingCourse(courseKey)) return courseKey;
+  return courseKey.slice(0, -5);
+}
+
+function findRankingPosition(list, latestScore, courseKey, timeLimit) {
+  const matchIndex = list.findIndex(
+    (item) =>
+      Number(item.score) === Number(latestScore) &&
+      String(item.course || "") === String(courseKey) &&
+      Number(item.time) === Number(timeLimit),
+  );
+
+  if (matchIndex >= 0) return matchIndex + 1;
+  return list.length + 1;
+}
 
 // ==============================
 // 出題モード：保存/復元
@@ -131,20 +334,17 @@ function applyTimeUI() {
 // 初期：モード復元
 // ==============================
 loadModeFromStorage();
-applyModeUI();
-
 loadTimeFromStorage();
+applyModeUI();
 applyTimeUI();
 
 // ==============================
 // 初期コース判定
 // ==============================
-if (
-  initialCourse &&
-  typeof COURSE_MAP !== "undefined" &&
-  COURSE_MAP[initialCourse]
-) {
-  setCourse(initialCourse, COURSE_MAP[initialCourse].json);
+const initialCourseConfig = initialCourse ? getCourseConfig(initialCourse) : null;
+
+if (initialCourse && initialCourseConfig) {
+  setCourse(initialCourse, initialCourseConfig.json);
 } else {
   if (courseTitleEl) courseTitleEl.textContent = "コースを選択してください";
   if (questionEl) questionEl.textContent = "左のコースを選択してください";
@@ -164,9 +364,12 @@ if (
 function setCourse(courseKey, jsonPath) {
   currentCourseKey = courseKey;
   currentJsonPath = jsonPath;
+  applyCourseModeSettings(courseKey);
 
-  if (courseTitleEl && COURSE_MAP?.[courseKey]) {
-    courseTitleEl.textContent = COURSE_MAP[courseKey].label;
+  const courseConfig = getCourseConfig(courseKey);
+
+  if (courseTitleEl && courseConfig?.label) {
+    courseTitleEl.textContent = courseConfig.label;
   }
 
   // 左ナビ active 制御
@@ -195,14 +398,17 @@ function loadQuestions(jsonPath) {
       originalQuestions = Array.isArray(data) ? [...data] : [];
       questions = buildQuestionList(originalQuestions);
 
-      totalQuestions = questions.length;
+      initialTotalQuestions = originalQuestions.length;
+      totalQuestions = initialTotalQuestions;
       currentQuestionNumber = 0;
       updateProgress();
 
       isLoaded = true;
       canStart = true;
       if (questionEl) {
-        questionEl.textContent = "Enterキーで開始してください(日本語入力はOFF)";
+        questionEl.textContent = isRankingMode
+          ? getRankingCooldownMessage(currentCourseKey)
+          : "Enterキーで開始してください(日本語入力はOFF)";
       }
     })
     .catch(() => {
@@ -239,6 +445,7 @@ function resetGame() {
 
   totalQuestions = 0;
   currentQuestionNumber = 0;
+  initialTotalQuestions = 0;
   updateProgress();
 
   missCharCount = {};
@@ -261,7 +468,7 @@ function restartSameCourse(message) {
 
   questions = buildQuestionList(originalQuestions);
 
-  totalQuestions = questions.length;
+  totalQuestions = initialTotalQuestions;
   currentQuestionNumber = 0;
   updateProgress();
 
@@ -280,6 +487,28 @@ function restartSameCourse(message) {
 // ==============================
 function startGame() {
   if (isStarted || !canStart || !isLoaded) return;
+
+  if (isRankingMode) {
+    const playerName = ensurePlayerName();
+    if (!playerName) {
+      if (questionEl) {
+        questionEl.textContent =
+          "ランキングに参加するには名前の入力が必要です。Enterキーでもう一度開始できます";
+      }
+      return;
+    }
+  }
+
+  if (isRankingMode) {
+    const remainingMs = getRankingCooldownRemainingMs(currentCourseKey);
+    if (remainingMs > 0) {
+      canStart = true;
+      if (questionEl) {
+        questionEl.textContent = getRankingCooldownMessage(currentCourseKey);
+      }
+      return;
+    }
+  }
 
   isStarted = true;
   canStart = false;
@@ -304,7 +533,6 @@ function nextQuestion() {
     return;
   }
 
-  currentQuestionNumber++;
   updateProgress();
 
   const q = questions.shift();
@@ -380,7 +608,10 @@ document.addEventListener("keydown", (e) => {
     score++;
     if (scoreEl) scoreEl.textContent = String(score);
     renderText();
-    if (charIndex === currentText.length) nextQuestion();
+    if (charIndex === currentText.length) {
+      currentQuestionNumber++;
+      nextQuestion();
+    }
   } else {
     missCount++;
 
@@ -407,7 +638,7 @@ document.addEventListener("keyup", (e) => {
 // ==============================
 // 終了処理（誤打はtypingでのみ表示）
 // ==============================
-function finishGame() {
+async function finishGame() {
   if (isFinished) return;
   isFinished = true;
 
@@ -419,6 +650,37 @@ function finishGame() {
   const cpm = (score / timeLimit) * 60;
 
   const { rank, color } = getRank(accuracy, cpm);
+
+  if (isRankingMode) {
+    setRankingCooldown(currentCourseKey);
+  }
+
+  let rankingPosition = null;
+  let rankingError = null;
+
+  try {
+    await postFinalScore({
+      score,
+      course: currentCourseKey || "",
+      time: timeLimit,
+      name: getStoredPlayerName(),
+      progressCurrent: currentQuestionNumber,
+      progressTotal: initialTotalQuestions,
+    });
+
+    if (isRankingMode && currentCourseKey) {
+      const rankingList = await fetchCourseRanking(currentCourseKey);
+      rankingPosition = findRankingPosition(
+        rankingList,
+        score,
+        currentCourseKey,
+        timeLimit,
+      );
+    }
+  } catch (err) {
+    console.error("save-score error:", err);
+    rankingError = err;
+  }
 
   // ★時間別で自己ベスト判定
   const prevBestScore = getBestScore(currentCourseKey, timeLimit);
@@ -464,6 +726,39 @@ function finishGame() {
     : "";
 
   if (!questionEl) return;
+
+  const rankingCourseKey = getRankingDisplayCourseKey(currentCourseKey || "");
+  const rankingButtonHtml =
+    isRankingMode && rankingCourseKey
+      ? `<a href="ranking.html?course=${encodeURIComponent(
+          rankingCourseKey,
+        )}" class="btn btn-warning px-4 py-2 mt-2">ランキングを見る</a>`
+      : "";
+
+  const rankingPositionHtml =
+    isRankingMode && rankingPosition
+      ? `<div class="rank-result__place">あなたは現在 <strong>${rankingPosition}位</strong> です！</div>`
+      : isRankingMode && rankingError
+        ? `<div class="rank-result__place">順位を取得できませんでした</div>`
+        : "";
+
+  if (isRankingMode) {
+    questionEl.innerHTML = `<div class="rank-result">
+<div class="rank-result__label">ランキングチャレンジ終了</div>
+<div class="rank-result__score-label">今回のスコア</div>
+<div class="rank-result__score">${score}</div>
+${rankingPositionHtml}
+${bestMessage}
+<div class="rank-result__actions">
+${rankingButtonHtml}
+<button id="retryBtn" class="btn btn-outline-light px-4 py-2 mt-2">同じコースでもう一度</button>
+</div>
+</div>`;
+
+    const retryBtn = document.getElementById("retryBtn");
+    if (retryBtn) retryBtn.onclick = () => loadQuestions(currentJsonPath);
+    return;
+  }
 
   questionEl.innerHTML = `<div class="text-center" style="line-height:1em"><div class="fw-bold mb-1">タイピング終了</div>
 <div>制限時間：${timeLimit}秒</div>
@@ -558,6 +853,7 @@ function shuffle(array) {
 }
 function buildQuestionList(list) {
   const copied = [...list];
+  if (isRankingMode) return copied;
   return questionOrderMode === "shuffle" ? shuffle(copied) : copied;
 }
 function escapeHTML(str) {
@@ -573,6 +869,7 @@ function escapeHTML(str) {
 // 出題モード切替
 // ==============================
 function switchMode(mode) {
+  if (isRankingMode) return;
   if (mode !== "sequence" && mode !== "shuffle") return;
   if (questionOrderMode === mode) return;
 
@@ -622,6 +919,11 @@ if (resetBtn) {
 
 if (timeSelectEl) {
   timeSelectEl.addEventListener("change", () => {
+    if (isRankingMode) {
+      timeSelectEl.value = String(RANKING_TIME_LIMIT);
+      return;
+    }
+
     const val = Number(timeSelectEl.value);
     if (![60, 120, 180, 300].includes(val)) return;
 

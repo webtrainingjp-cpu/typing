@@ -1,13 +1,20 @@
+</div>
 <footer class="text-center py-4 mt-5 border-top border-secondary">
     <p>
-        <a href="https://webtraining.jp/" target="_blank">
-            <img src="images/logo_white.svg" alt="Webtraining.jp" width="300">
+        <a href="https://typing.webtraining.jp/">
+            <img
+                src="images/logo_typing.svg"
+                alt="Web制作学習者のためのタイピング練習"
+                width="500"
+                class="img-fluid">
         </a>
     </p>
     <nav class="mb-3 d-flex justify-content-center gap-3 flex-wrap">
         <a href="index.php" class="btn btn-outline-info btn-sm">ホーム</a>
-        <a href="typing.html" class="btn btn-outline-info btn-sm">タイピング</a>
-        <a href="record.html" class="btn btn-outline-info btn-sm">自分の記録</a>
+        <a href="ranking.html" class="btn btn-outline-info btn-sm">ランキングを見る</a>
+        <a href="typing.html" class="btn btn-outline-info btn-sm">練習する</a>
+
+        <a href="record.html" class="btn btn-outline-info btn-sm">スコア履歴</a>
         <a href="about.php" class="btn btn-outline-info btn-sm">このサイトについて</a>
         <a href="faq.php" class="btn btn-outline-info btn-sm">FAQ</a>
         <a href="contact.php" class="btn btn-outline-info btn-sm">お問い合わせ</a>
@@ -35,7 +42,7 @@
     }
 </script>
 
-</div>
+
 </body>
 
 </html>

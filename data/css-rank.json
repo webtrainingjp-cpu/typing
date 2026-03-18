@@ -1,0 +1,50 @@
+[
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "文字色と背景色",
+    "text": "color:#fff;background:#111;"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "フォント設定",
+    "text": "font-family:\"Roboto\",sans-serif;line-height:1.6;"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "Flex中央寄せ",
+    "text": "display:flex;justify-content:center;align-items:center;"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "カード装飾",
+    "text": "border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.15);"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "Gridレイアウト",
+    "text": "display:grid;grid-template-columns:repeat(3,1fr);gap:20px;"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "レスポンシブ対応",
+    "text": "@media (max-width:768px){grid-template-columns:1fr;}"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "背景画像設定",
+    "text": "background:url(\"bg.jpg\") center / cover no-repeat;"
+  },
+  {
+    "course": "css_rank",
+    "level": "rank",
+    "title": "ホバーアニメーション",
+    "text": "transition:all 0.3s ease;cursor:pointer;"
+  }
+]
