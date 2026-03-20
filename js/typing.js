@@ -16,7 +16,7 @@
 // const TIME_LIMIT = 300; // 秒
 const DEFAULT_TIME_LIMIT = 300; // 秒（デフォルト）
 const TIME_STORAGE_KEY = "wt_typing_time_limit"; // localStorageに保存
-const RANKING_TIME_LIMIT = 60; // ランキング専用は60秒固定
+const RANKING_TIME_LIMIT = 100; // ランキング専用は100秒固定
 const RANKING_COOLDOWN_MS = 60 * 1000; // 再挑戦まで60秒
 const PLAYER_NAME_STORAGE_KEY = "wt_player_name";
 
@@ -127,6 +127,10 @@ function getRankingCooldownStorageKey(courseKey) {
   return `wt_ranking_cooldown_${courseKey}`;
 }
 
+function getLatestRankingResultStorageKey(courseKey) {
+  return `wt_latest_ranking_result_${courseKey}`;
+}
+
 function setRankingCooldown(courseKey) {
   if (!isRankingCourse(courseKey)) return;
 
@@ -186,6 +190,17 @@ function applyCourseModeSettings(courseKey) {
   applyTimeUI();
 }
 
+function getDisplayedScore() {
+  if (isRankingMode) {
+    return score;
+  }
+  return score;
+}
+
+function updateDisplayedScore() {
+  if (scoreEl) scoreEl.textContent = String(getDisplayedScore());
+}
+
 function getStoredPlayerName() {
   try {
     const saved = localStorage.getItem(PLAYER_NAME_STORAGE_KEY);
@@ -222,8 +237,9 @@ async function postFinalScore({
   course,
   time,
   name,
-  progressCurrent,
-  progressTotal,
+  correctCount,
+  totalCount,
+  remainingTime,
 }) {
   const saveScoreUrl = new URL("./api/save-score.php", location.href);
   const response = await fetch(saveScoreUrl.toString(), {
@@ -236,8 +252,9 @@ async function postFinalScore({
       course,
       time,
       name,
-      progress_current: progressCurrent,
-      progress_total: progressTotal,
+      correct_count: correctCount,
+      total_count: totalCount,
+      remaining_time: remainingTime,
     }),
   });
 
@@ -258,6 +275,9 @@ async function postFinalScore({
 async function fetchCourseRanking(courseKey) {
   const url = new URL("api/get-ranking.php", location.href);
   url.searchParams.set("course", courseKey);
+  if (isRankingCourse(courseKey)) {
+    url.searchParams.set("time", String(RANKING_TIME_LIMIT));
+  }
 
   const response = await fetch(url.toString());
   if (!response.ok) {
@@ -277,16 +297,36 @@ function getRankingDisplayCourseKey(courseKey) {
   return courseKey.slice(0, -5);
 }
 
-function findRankingPosition(list, latestScore, courseKey, timeLimit) {
-  const matchIndex = list.findIndex(
-    (item) =>
-      Number(item.score) === Number(latestScore) &&
-      String(item.course || "") === String(courseKey) &&
-      Number(item.time) === Number(timeLimit),
-  );
+function saveLatestRankingResult(courseKey, result) {
+  if (!courseKey || !result) return;
 
-  if (matchIndex >= 0) return matchIndex + 1;
-  return list.length + 1;
+  try {
+    localStorage.setItem(
+      getLatestRankingResultStorageKey(courseKey),
+      JSON.stringify(result),
+    );
+  } catch {}
+}
+
+function findRankingPosition(list, playerName) {
+  if (!playerName) return null;
+
+  let currentRank = 0;
+  let prevScore = null;
+
+  for (let i = 0; i < list.length; i++) {
+    const rowScore = Number(list[i].score) || 0;
+    if (prevScore === null || rowScore !== prevScore) {
+      currentRank = i + 1;
+      prevScore = rowScore;
+    }
+
+    if (String(list[i].name || "") === String(playerName)) {
+      return currentRank;
+    }
+  }
+
+  return null;
 }
 
 // ==============================
@@ -436,7 +476,7 @@ function resetGame() {
   totalTyped = 0;
   missCount = 0;
 
-  if (scoreEl) scoreEl.textContent = "0";
+  updateDisplayedScore();
   if (timeEl) timeEl.textContent = String(time);
 
   if (progressBar) progressBar.style.width = "100%";
@@ -516,6 +556,7 @@ function startGame() {
 
   time = timeLimit;
   if (timeEl) timeEl.textContent = String(time);
+  updateDisplayedScore();
 
   if (progressArea) progressArea.style.visibility = "visible";
   if (progressBar) progressBar.style.width = "100%";
@@ -568,6 +609,7 @@ function startTimer() {
   timerId = setInterval(() => {
     time--;
     if (timeEl) timeEl.textContent = String(time);
+    updateDisplayedScore();
     if (progressBar) progressBar.style.width = (time / timeLimit) * 100 + "%";
 
     if (time <= 0) {
@@ -606,7 +648,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === currentText[charIndex]) {
     charIndex++;
     score++;
-    if (scoreEl) scoreEl.textContent = String(score);
+    updateDisplayedScore();
     renderText();
     if (charIndex === currentText.length) {
       currentQuestionNumber++;
@@ -648,6 +690,8 @@ async function finishGame() {
 
   const accuracy = totalTyped ? (score / totalTyped) * 100 : 0;
   const cpm = (score / timeLimit) * 60;
+  const rankingCorrectCount = score;
+  const finalScore = rankingCorrectCount + Math.max(0, time);
 
   const { rank, color } = getRank(accuracy, cpm);
 
@@ -659,23 +703,27 @@ async function finishGame() {
   let rankingError = null;
 
   try {
-    await postFinalScore({
-      score,
+    const savedResult = await postFinalScore({
+      score: isRankingMode ? finalScore : score,
       course: currentCourseKey || "",
       time: timeLimit,
       name: getStoredPlayerName(),
-      progressCurrent: currentQuestionNumber,
-      progressTotal: initialTotalQuestions,
+      correctCount: isRankingMode ? rankingCorrectCount : score,
+      totalCount: totalTyped,
+      remainingTime: time,
     });
 
     if (isRankingMode && currentCourseKey) {
+      saveLatestRankingResult(getRankingDisplayCourseKey(currentCourseKey), {
+        score: Number(savedResult?.score) || finalScore,
+        created_at: String(savedResult?.created_at || ""),
+        name: String(savedResult?.name || getStoredPlayerName() || ""),
+      });
+    }
+
+    if (isRankingMode && currentCourseKey) {
       const rankingList = await fetchCourseRanking(currentCourseKey);
-      rankingPosition = findRankingPosition(
-        rankingList,
-        score,
-        currentCourseKey,
-        timeLimit,
-      );
+      rankingPosition = findRankingPosition(rankingList, getStoredPlayerName());
     }
   } catch (err) {
     console.error("save-score error:", err);
@@ -684,7 +732,8 @@ async function finishGame() {
 
   // ★時間別で自己ベスト判定
   const prevBestScore = getBestScore(currentCourseKey, timeLimit);
-  const isNewBest = score > prevBestScore;
+  const compareScore = isRankingMode ? finalScore : score;
+  const isNewBest = compareScore > prevBestScore;
   const bestMessage = isNewBest
     ? `<div class="fw-bold mt-1 mb-1 text-danger">自己ベスト更新！</div>`
     : "";
@@ -746,9 +795,8 @@ async function finishGame() {
     questionEl.innerHTML = `<div class="rank-result">
 <div class="rank-result__label">ランキングチャレンジ終了</div>
 <div class="rank-result__score-label">今回のスコア</div>
-<div class="rank-result__score">${score}</div>
+<div class="rank-result__score">${finalScore}</div>
 ${rankingPositionHtml}
-${bestMessage}
 <div class="rank-result__actions">
 ${rankingButtonHtml}
 <button id="retryBtn" class="btn btn-outline-light px-4 py-2 mt-2">同じコースでもう一度</button>

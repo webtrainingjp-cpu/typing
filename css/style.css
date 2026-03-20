@@ -564,6 +564,16 @@ footer {
   box-shadow: 0 0 12px rgba(205, 127, 50, 0.24);
 }
 
+.my-rank {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+}
+
 
 .miss_text{
     width: 50%;

@@ -9,14 +9,14 @@ require 'header.php';
   <div class="ranking-hero__content">
     <div class="ranking-hero__copy">
       <p class="ranking-hero__eyebrow">Weekly Battle</p>
-      <h2 class="ranking-hero__title roboto-mono ">Ranking challenge</h2>
+      <h2 class="ranking-hero__title roboto-mono">Ranking Challenge</h2>
       <p class="ranking-hero__text">
-        60秒・全員同一問題で勝負！通常の練習モードとは別ルールで、
+        100秒・全員同一問題で勝負！通常の練習モードとは別ルールで、
         固定問題にどこまで速く正確に打てるかを競うランキング専用モードです。
       </p>
       <div class="ranking-hero__meta">
         <span>固定問題</span>
-        <span>60秒一本勝負</span>
+        <span>100秒一本勝負</span>
         <span>再挑戦は60秒後</span>
       </div>
     </div>

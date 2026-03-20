@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="ランキングチャレンジ専用タイピング画面。60秒・固定問題で集中してスコアを競います。"
+      content="ランキングチャレンジ専用タイピング画面。100秒・固定問題で集中してスコアを競います。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,13 +27,13 @@
   <body class="text-light rank-screen-body">
     <div class="rank-shell">
       <header class="rank-header">
-        <p class="rank-header__eyebrow">Ranking Mode</p>
-        <h1 class="rank-header__title">ランキングチャレンジ</h1>
+        <p class="rank-header__eyebrow roboto-mono">Ranking Mode</p>
+        <h1 class="rank-header__title roboto-mono">Ranking Challenge</h1>
         <p id="currentCourse" class="rank-header__course">
           コースを読み込んでいます…
         </p>
         <p class="rank-header__lead">
-          固定問題・60秒勝負。開始前に3秒カウントダウンが入ります。
+          固定問題・100秒勝負。開始前に3秒カウントダウンが入ります。
         </p>
       </header>
 
@@ -42,7 +42,7 @@
           <div class="rank-stats">
             <div class="rank-stat">
               <span class="rank-stat__label">残り時間</span>
-              <span class="rank-stat__value"><span id="time">60</span> 秒</span>
+              <span class="rank-stat__value"><span id="time">100</span> 秒</span>
             </div>
             <div class="rank-stat">
               <span class="rank-stat__label">現在のスコア</span>
@@ -197,6 +197,7 @@
           const rankingCourse = courseParam.replace(/_rank$/, "");
           const url = new URL("api/get-ranking.php", location.href);
           url.searchParams.set("course", rankingCourse);
+          url.searchParams.set("time", "100");
 
           try {
             const response = await fetch(url.toString());

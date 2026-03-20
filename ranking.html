@@ -9,6 +9,12 @@
       name="description"
       content="WebTraining タイピング練習の週次ランキングページです。過去7日間の上位スコアを表示します。"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -26,11 +32,10 @@
     <div class="container py-4">
       <!-- ===== タイトル ===== -->
       <p class="ranking-page-eyebrow mb-2 text-center">Weekly Battle</p>
-      <h1 class="mb-2 text-center">ランキング</h1>
-
+      <h1 class="mb-2 text-center roboto-mono">Ranking List</h1>
       <!-- ===== コース名 ===== -->
       <h2 id="courseTitle" class="text-center mb-2"></h2>
-      <p class="text-center text-secondary mb-4">
+      <p class="text-center text-white mb-4">
         過去7日間のスコア上位10件を表示しています。ランキングは毎週リセットされます。
       </p>
       <div class="row">
@@ -132,12 +137,16 @@
           <!-- ===== ランキング表示 ===== -->
           <div class="card bg-dark border-light mb-4">
             <div class="card-body">
+              <div id="myRank" class="my-rank"></div>
               <div id="rankingList"></div>
             </div>
           </div>
 
           <!-- ===== 戻る ===== -->
           <div class="text-center">
+            <a href="" id="retryRankBtn" class="btn btn-warning me-2">
+              もう一度挑戦する
+            </a>
             <a href="index.php" class="btn btn-outline-light">
               チャレンジ一覧へ戻る
             </a>
@@ -187,8 +196,13 @@
       const courseKey = params.get("course");
 
       const courseTitleEl = document.getElementById("courseTitle");
+      const myRankEl = document.getElementById("myRank");
       const rankingList = document.getElementById("rankingList");
+      const retryRankBtn = document.getElementById("retryRankBtn");
       const currentPlayerName = localStorage.getItem("wt_player_name") || "";
+      const latestRankingResultKey = courseKey
+        ? `wt_latest_ranking_result_${courseKey}`
+        : "";
 
       if (!courseKey) {
         location.href = "ranking.html?course=html";
@@ -196,7 +210,12 @@
         const displayCourseName = courseKey
           .replace(/_/g, " ")
           .replace(/\b\w/g, (char) => char.toUpperCase());
-        courseTitleEl.textContent = `${displayCourseName}ランキング`;
+        courseTitleEl.textContent = `${displayCourseName}ランキング（100秒チャレンジ）`;
+        if (retryRankBtn) {
+          retryRankBtn.href = `typing-rank.html?course=${encodeURIComponent(
+            `${courseKey}_rank`,
+          )}`;
+        }
       }
 
       // ==============================
@@ -207,6 +226,22 @@
 
         if (courseKey) {
           url.searchParams.set("course", `${courseKey}_rank`);
+          url.searchParams.set("time", "100");
+        }
+
+        const latestResult = getLatestRankingResult();
+        if (
+          latestResult &&
+          latestResult.score !== undefined &&
+          latestResult.score !== null &&
+          latestResult.created_at
+        ) {
+          url.searchParams.set(
+            "my_name",
+            String(latestResult.name || currentPlayerName || ""),
+          );
+          url.searchParams.set("my_score", String(latestResult.score));
+          url.searchParams.set("my_created_at", latestResult.created_at);
         }
 
         const response = await fetch(url.toString());
@@ -217,16 +252,51 @@
 
         const data = await response.json();
 
-        if (!Array.isArray(data)) {
+        if (Array.isArray(data)) {
+          return {
+            ranking: data,
+            myRank: null,
+          };
+        }
+
+        if (!Array.isArray(data.ranking)) {
           throw new Error(data.error || "ランキングデータの取得に失敗しました");
         }
 
-        return data;
+        return {
+          ranking: data.ranking,
+          myRank: data.my_rank || null,
+        };
       }
 
       // ==============================
       // ランキング描画
       // ==============================
+      function getLatestRankingResult() {
+        if (!latestRankingResultKey) return null;
+
+        try {
+          const raw = localStorage.getItem(latestRankingResultKey);
+          return raw ? JSON.parse(raw) : null;
+        } catch {
+          return null;
+        }
+      }
+
+      function renderMyRank(myRank) {
+        if (!myRankEl) return;
+
+        if (!myRank || !Number.isFinite(Number(myRank.rank))) {
+          myRankEl.textContent = "あなたの順位：--（直前の結果がありません）";
+          return;
+        }
+
+        const scoreText = Number(myRank.score) || 0;
+        myRankEl.textContent = myRank.in_top_10
+          ? `あなたの順位：${myRank.rank}位（スコア：${scoreText}）`
+          : `あなたの順位：${myRank.rank}位（TOP10圏外）`;
+      }
+
       function renderRanking(list) {
         if (list.length === 0) {
           rankingList.innerHTML = "<p>まだランキングはありません。</p>";
@@ -240,33 +310,31 @@
               <th>順位</th>
               <th>名前</th>
               <th>スコア</th>
-              <th>進捗</th>
-              <th>コース</th>
-              <th>制限時間</th>
+              <th>正解率</th>
             </tr>
           </thead>
           <tbody>
       `;
 
+        let displayRank = 0;
+        let prevScore = null;
+
         list.forEach((item, index) => {
-          const displayCourse = String(item.course || "").replace(/_rank$/, "");
           const isCurrentPlayer =
             currentPlayerName &&
             String(item.name || "") === String(currentPlayerName);
-          const progressCurrent = Number(item.progress_current) || 0;
-          const progressTotal = Number(item.progress_total) || 0;
-          const progressText = `${progressCurrent}/${progressTotal}`;
-          let progressClass = "text-bg-danger";
+          const rowScore = Number(item.score) || 0;
+          const correctCount = Number(item.progress_current) || 0;
+          const totalCount = Number(item.progress_total) || 0;
+          const accuracy =
+            totalCount > 0 ? Math.round((correctCount / totalCount) * 100) : 0;
 
-          if (progressTotal > 0 && progressCurrent >= progressTotal) {
-            progressClass = "text-bg-success";
-          } else if (
-            progressTotal > 0 &&
-            progressCurrent >= progressTotal / 2
-          ) {
-            progressClass = "text-bg-warning";
+          if (prevScore === null || rowScore !== prevScore) {
+            displayRank = index + 1;
+            prevScore = rowScore;
           }
-          const rankNumber = index + 1;
+
+          const rankNumber = displayRank;
           const rankClass =
             rankNumber === 1
               ? "rank-cell rank-1"
@@ -281,10 +349,8 @@
           <tr class="${isCurrentPlayer ? "table-warning" : ""}">
             <td class="${rankClass}">${rankIcon}<span>${rankNumber}位</span></td>
             <td>${escapeHTML(String(item.name || "-"))}</td>
-            <td>${Number(item.score) || 0}</td>
-            <td><span class="badge ${progressClass}">${progressText}</span></td>
-            <td>${escapeHTML(displayCourse)}</td>
-            <td>${Number(item.time) || 0}秒</td>
+            <td>${rowScore}</td>
+            <td><span class="badge text-bg-info">${accuracy}%</span></td>
           </tr>
         `;
         });
@@ -313,10 +379,12 @@
       // 初期表示
       // ==============================
       fetchRanking()
-        .then((ranking) => {
+        .then(({ ranking, myRank }) => {
+          renderMyRank(myRank);
           renderRanking(ranking);
         })
         .catch((error) => {
+          renderMyRank(null);
           rankingList.innerHTML = `<p class="text-danger">${escapeHTML(
             error.message,
           )}</p>`;
