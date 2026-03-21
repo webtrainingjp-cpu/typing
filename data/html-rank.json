@@ -21,7 +21,7 @@
     "course": "html_rank",
     "level": "rank",
     "title": "画像と説明",
-    "text": "<figure><img src=\"sample.jpg\" alt=\"sample\"><figcaption>caption</figcaption></figure>"
+    "text": "<figure><img src=\"sample.jpg\"><figcaption>caption</figcaption></figure>"
   },
   {
     "course": "html_rank",

@@ -19,6 +19,7 @@ const TIME_STORAGE_KEY = "wt_typing_time_limit"; // localStorageに保存
 const RANKING_TIME_LIMIT = 100; // ランキング専用は100秒固定
 const RANKING_COOLDOWN_MS = 60 * 1000; // 再挑戦まで60秒
 const PLAYER_NAME_STORAGE_KEY = "wt_player_name";
+const SHOW_VISIBLE_SPACES = true; // true のとき半角スペースを ␣ で表示
 
 const MODE_STORAGE_KEY = "wt_typing_question_mode"; // "sequence" | "shuffle"
 const ENABLE_SYMBOL_ONLY = false; // trueにすると「記号だけ」集計
@@ -589,15 +590,34 @@ function nextQuestion() {
 // ==============================
 function renderText() {
   if (!questionEl) return;
+  const currentIndex = Math.max(
+    0,
+    Math.min(Number.isFinite(charIndex) ? charIndex : 0, currentText.length),
+  );
 
-  const typed = currentText.slice(0, charIndex);
-  const current = currentText[charIndex] || "";
-  const remaining = currentText.slice(charIndex + 1);
+  // 1文字ずつ span にすることで、現在位置だけにカーソル表示を付けられる
+  // 半角スペースは見分けやすくするため、必要に応じて ␣ に置き換える
+  questionEl.innerHTML = Array.from(currentText)
+    .map((char, index) => {
+      const classes = [];
 
-  questionEl.innerHTML =
-    `<span class="typed">${escapeHTML(typed)}</span>` +
-    `<span class="current">${escapeHTML(current)}</span>` +
-    `<span class="remaining">${escapeHTML(remaining)}</span>`;
+      if (index < currentIndex) {
+        classes.push("correct");
+      } else if (index === currentIndex) {
+        classes.push("current");
+      }
+
+      const isSpace = char === " ";
+      if (isSpace) {
+        classes.push("space");
+      }
+
+      const displayChar =
+        isSpace && SHOW_VISIBLE_SPACES ? "␣" : escapeHTML(char);
+
+      return `<span class="${classes.join(" ")}">${displayChar}</span>`;
+    })
+    .join("");
 }
 
 // ==============================

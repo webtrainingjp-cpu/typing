@@ -1,6 +1,9 @@
 # Mac
 .DS_Store
 
+# Windows
+Thumbs.db
+
 # video
 *.mov
 *.mp4
@@ -10,3 +13,16 @@
 
 # log
 *.log
+
+# temp
+*.tmp
+*.swp
+
+# env
+.env
+
+# VSCode
+.vscode/
+
+# local config
+config.local.php

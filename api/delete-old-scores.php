@@ -16,8 +16,8 @@ declare(strict_types=1);
 // URL直叩き用の簡易キー認証
 // 本番では必ず推測困難な文字列に変更すること
 
-$secretKey = 'secret123';
-// $secretKey = 'x9F#kP2!aZ7@2026_typing'; // 本番用例
+// $secretKey = 'secret123';
+$secretKey = 'typing2026'; // 本番用例
 
 $inputKey = isset($_GET['key']) ? (string) $_GET['key'] : '';
 
@@ -32,12 +32,15 @@ try {
     // =====================================================
     // ② DB接続
     // =====================================================
+    $config = require __DIR__ . '/config.php';
+    $db = $config['db'] ?? [];
+
     $pdo = new PDO(
-        'mysql:host=localhost;dbname=typing_app;charset=utf8mb4',
-        'root',
-        '',
+        $db['dsn'] ?? '',
+        $db['user'] ?? '',
+        $db['pass'] ?? '',
         [
-            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, // エラーを例外化
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         ]
     );

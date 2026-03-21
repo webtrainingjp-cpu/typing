@@ -18,6 +18,7 @@
 
 body {
   user-select: none;
+  font-family: "Roboto Mono", monospace;
   background: linear-gradient(180deg,
       #0e0a00 0%,
       #01381d 25%,
@@ -457,35 +458,78 @@ pre {
 #question {
   /* letter-spacing: 0.2rem; */
   white-space: pre-wrap;
-  line-height: 1;
+  line-height: 2.2;
+  letter-spacing: 0.05em;
   word-break: break-word;
   overflow-wrap: anywhere;
+}
+
+#question span,
+.text span {
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.15s ease, opacity 0.15s ease;
 }
 
 
 /* タイピング状態 */
 
 /* 入力済み */
-.typed {
-  color: var(--text-muted);
-}
-
-/* 未入力 */
-.remaining {
-  color: #e9ecef;
+#question span.correct {
+  color: rgba(56, 189, 248, 0.9);
+  text-shadow: 0 0 6px rgba(56, 189, 248, 0.25);
 }
 
 /* 現在入力中 */
 .current {
+  position: relative;
   color: var(--wt-green);
-  border-bottom: 2px solid var(--wt-green);
+}
+
+.current::after {
+  content: "";
+  position: absolute;
+  left: -0.08em;
+  top: 50%;
+  width: 2px;
+  height: 1.2em;
+  background: #22d3ee;
+  transform: translateY(-52%);
+  animation: wt-caret-blink 1s step-end infinite;
 }
 
 /* ミス */
 .current.error {
-  color: var(--text-error);
-  border-bottom-color: var(--text-error);
-    text-shadow: 0 0 6px rgba(220, 53, 69, 0.8);
+  color: #ff6b6b;
+  text-shadow: 0 0 6px rgba(220, 53, 69, 0.8);
+}
+
+.current.error::after {
+  background: #ff6b6b;
+}
+
+.miss {
+  color: #ff6b6b;
+}
+
+.space {
+  opacity: 0.45;
+}
+
+.correct.space {
+  opacity: 0.8;
+}
+
+@keyframes wt-caret-blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+
+  25%,
+  75% {
+    opacity: 0;
+  }
 }
 
 

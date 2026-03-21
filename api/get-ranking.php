@@ -10,7 +10,7 @@ $db = $config['db'] ?? [];
 
 $course = isset($_GET['course']) ? trim((string) $_GET['course']) : '';
 $scope = isset($_GET['scope']) ? trim((string) $_GET['scope']) : 'weekly';
-$time = isset($_GET['time']) ? (int) $_GET['time'] : 0;
+$time = isset($_GET['time']) && (int) $_GET['time'] > 0 ? (int) $_GET['time'] : 100;
 $myName = isset($_GET['my_name']) ? trim((string) $_GET['my_name']) : '';
 $myScore = isset($_GET['my_score']) ? (int) $_GET['my_score'] : null;
 $myCreatedAt = isset($_GET['my_created_at']) ? trim((string) $_GET['my_created_at']) : '';
@@ -39,109 +39,89 @@ try {
         exit;
     }
 
-    $params = [];
+    $weeklyFilter = $scope === 'weekly'
+        ? ' AND created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)'
+        : '';
 
-    $buildConditions = static function (string $alias) use ($course, $scope, $time, &$params): array {
-        $conditions = ["{$alias}.name <> ''"];
-
-        if ($course !== '') {
-            $conditions[] = "{$alias}.course = :course";
-            $params[':course'] = $course;
-        }
-
-        if ($time > 0) {
-            $conditions[] = "{$alias}.time = :time";
-            $params[':time'] = $time;
-        }
-
-        if ($scope === 'weekly') {
-            $conditions[] = "{$alias}.created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)";
-        }
-
-        return $conditions;
-    };
-
-    $mainWhere = 'WHERE ' . implode(' AND ', $buildConditions('s'));
-    $latestWhere = implode(' AND ', $buildConditions('s2'));
-
-    $stmt = $pdo->prepare(
-        "SELECT
-            name,
-            score,
-            course,
-            time,
-            progress_current,
-            progress_total,
-            created_at
+    $topSql = "
+        SELECT
+            s.name,
+            s.score,
+            s.course,
+            s.time,
+            s.progress_current,
+            s.progress_total,
+            s.created_at
         FROM scores s
-        {$mainWhere}
-          AND s.created_at = (
-            SELECT MAX(s2.created_at)
-            FROM scores s2
-            WHERE s2.name = s.name
-              AND {$latestWhere}
-          )
-        ORDER BY score DESC, created_at ASC
-        LIMIT 10"
-    );
+        INNER JOIN (
+            SELECT name, MAX(created_at) AS latest_created_at
+            FROM scores
+            WHERE name <> ''
+              AND course = :course_filter
+              AND time = :time_filter
+              {$weeklyFilter}
+            GROUP BY name
+        ) latest
+            ON latest.name = s.name
+           AND latest.latest_created_at = s.created_at
+        WHERE s.name <> ''
+          AND s.course = :course_main
+          AND s.time = :time_main
+          {$weeklyFilter}
+        ORDER BY s.score DESC, s.created_at ASC
+        LIMIT 10
+    ";
 
-    $stmt->execute($params);
-    $rows = $stmt->fetchAll();
+    $topStmt = $pdo->prepare($topSql);
+    $topStmt->bindValue(':course_filter', $course, PDO::PARAM_STR);
+    $topStmt->bindValue(':time_filter', $time, PDO::PARAM_INT);
+    $topStmt->bindValue(':course_main', $course, PDO::PARAM_STR);
+    $topStmt->bindValue(':time_main', $time, PDO::PARAM_INT);
+    $topStmt->execute();
+    $rows = $topStmt->fetchAll();
 
     $myRank = null;
 
     if ($course !== '' && $myName !== '' && $myScore !== null && $myCreatedAt !== '') {
-        $rankParams = [
-            ':course' => $course,
-            ':my_score' => $myScore,
-            ':my_created_at' => $myCreatedAt,
-        ];
+        $rankSql = "
+            SELECT COUNT(*) + 1 AS user_rank
+            FROM (
+                SELECT
+                    s.name,
+                    s.score,
+                    s.created_at
+                FROM scores s
+                INNER JOIN (
+                    SELECT name, MAX(created_at) AS latest_created_at
+                    FROM scores
+                    WHERE name <> ''
+                      AND course = :rank_course_filter
+                      AND time = :rank_time_filter
+                      {$weeklyFilter}
+                    GROUP BY name
+                ) latest
+                    ON latest.name = s.name
+                   AND latest.latest_created_at = s.created_at
+                WHERE s.name <> ''
+                  AND s.course = :rank_course_main
+                  AND s.time = :rank_time_main
+                  {$weeklyFilter}
+            ) ranked
+            WHERE ranked.score > :my_score
+               OR (ranked.score = :my_score AND ranked.created_at < :my_created_at)
+        ";
 
-        $latestRankConditions = [
-            'latest.course = :course',
-            "latest.name <> ''",
-        ];
-        $latestInnerConditions = [
-            's2.course = latest.course',
-            's2.name = latest.name',
-            "s2.name <> ''",
-        ];
-
-        if ($time > 0) {
-            $latestRankConditions[] = 'latest.time = :time';
-            $latestInnerConditions[] = 's2.time = :time';
-            $rankParams[':time'] = $time;
-        }
-
-        if ($scope === 'weekly') {
-            $latestRankConditions[] = 'latest.created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)';
-            $latestInnerConditions[] = 's2.created_at >= DATE_SUB(NOW(), INTERVAL 7 DAY)';
-        }
-
-        $latestRankWhere = implode(' AND ', $latestRankConditions);
-        $latestInnerWhere = implode(' AND ', $latestInnerConditions);
-
-        $rankStmt = $pdo->prepare(
-            "SELECT COUNT(*) + 1 AS rank
-             FROM (
-                SELECT latest.name, latest.score, latest.created_at
-                FROM scores latest
-                WHERE {$latestRankWhere}
-                  AND latest.created_at = (
-                    SELECT MAX(s2.created_at)
-                    FROM scores s2
-                    WHERE {$latestInnerWhere}
-                  )
-             ) ranked
-             WHERE (
-                ranked.score > :my_score
-                OR (ranked.score = :my_score AND ranked.created_at < :my_created_at)
-             )"
-        );
-        $rankStmt->execute($rankParams);
+        $rankStmt = $pdo->prepare($rankSql);
+        $rankStmt->bindValue(':rank_course_filter', $course, PDO::PARAM_STR);
+        $rankStmt->bindValue(':rank_time_filter', $time, PDO::PARAM_INT);
+        $rankStmt->bindValue(':rank_course_main', $course, PDO::PARAM_STR);
+        $rankStmt->bindValue(':rank_time_main', $time, PDO::PARAM_INT);
+        $rankStmt->bindValue(':my_score', $myScore, PDO::PARAM_INT);
+        $rankStmt->bindValue(':my_created_at', $myCreatedAt, PDO::PARAM_STR);
+        $rankStmt->execute();
         $rankRow = $rankStmt->fetch();
 
-        $calculatedRank = isset($rankRow['rank']) ? (int) $rankRow['rank'] : 1;
+        $calculatedRank = isset($rankRow['user_rank']) ? (int) $rankRow['user_rank'] : 1;
         $myRank = [
             'name' => $myName,
             'score' => $myScore,
